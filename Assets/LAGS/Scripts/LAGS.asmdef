@@ -1,0 +1,20 @@
+{
+    "name": "LAGS",
+    "rootNamespace": "LAGS",
+    "references": [
+        "GUID:159a801c9b256aa4b8d8b65ce8c10a7a",
+        "GUID:36188afd4ef8a9f4a8f97daad7e50616",
+        "GUID:d7dbecec7a1014a49a5d45bc05b1f69a",
+        "GUID:a927b9d066b8e95449b97222b750c494",
+        "GUID:75469ad4d38634e559750d17036d5f7c"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
