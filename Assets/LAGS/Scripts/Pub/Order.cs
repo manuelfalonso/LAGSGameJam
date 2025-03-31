@@ -1,9 +1,17 @@
+using System.Collections.Generic;
+
 namespace LAGS.Pub
 {
-    public struct Order
+    public class Order
     {
-        public Plate PlateSprite;
+        public List<Plate> Plates;
         public OrderStatus Status;
+        
+        public Order (List<Plate> plates)
+        {
+            Status = OrderStatus.Request;
+            Plates = plates;
+        }
     }
 
     public enum OrderStatus

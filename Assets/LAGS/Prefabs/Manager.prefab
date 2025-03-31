@@ -45,13 +45,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42173544ecb5acf4fa59c5d185cb5843, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pubDoors: {fileID: 4107628240525092809}
   _dayDuration: 300
-  _closeDoorTime: 0
-  _clientPrefab: {fileID: 0}
-  _clientSpawnPoint: {fileID: 4107628240525092809}
-  _minTimeToNewClient: 5
-  _maxTimeToNewClient: 8
+  _closeDoorTime: 250
+  _clientPrefab: {fileID: 3776262604319408298, guid: 34d70cd2a7e1716488e566ec14c3a915, type: 3}
+  _minTimeToNewClient: 15
+  _maxTimeToNewClient: 15
   _tables: []
+  _plates: []
 --- !u!1 &828473119108042988
 GameObject:
   m_ObjectHideFlags: 0

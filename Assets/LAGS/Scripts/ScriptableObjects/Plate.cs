@@ -1,10 +1,12 @@
+using System;
 using UnityEngine;
 
 namespace LAGS.Pub
 {
-    [CreateAssetMenu(fileName = "Plate", menuName = "LAGS/Plate")]
-    public class Plate : ScriptableObject
+    [Serializable]
+    public struct Plate
     {
+        public string Name;
         public Sprite PlateSprite;
         public float TimeToPrepare;
     }
