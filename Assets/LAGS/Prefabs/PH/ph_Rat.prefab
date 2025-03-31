@@ -180,8 +180,10 @@ GameObject:
   - component: {fileID: 1984317637396745677}
   - component: {fileID: 2432988635696552652}
   - component: {fileID: 961762889791758913}
+  - component: {fileID: 6317620306988958485}
   - component: {fileID: 109442569055917808}
   - component: {fileID: 8414319607891952261}
+  - component: {fileID: 9038323425713206748}
   m_Layer: 0
   m_Name: ph_Rat
   m_TagString: Untagged
@@ -320,6 +322,27 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
+--- !u!95 &6317620306988958485
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3245613480046738335}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: cd2220c724491aa47a5100ab4b57b28f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &109442569055917808
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -350,3 +373,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56257aa8e4434a545aabadb62feadccf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &9038323425713206748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3245613480046738335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c0807f812e33fe43aedeb6ec9c060a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _onRatDeathEvent: {fileID: 11400000, guid: e3f45afab2894cb4da33b9dd07986ca3, type: 2}
