@@ -349,7 +349,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4520977095968695895, guid: c00c79d73e07d3046b510e3279a83939, type: 3}
       propertyPath: _tables.Array.size
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4520977095968695895, guid: c00c79d73e07d3046b510e3279a83939, type: 3}
       propertyPath: _maxTimeToNewClient
@@ -3932,10 +3932,6 @@ PrefabInstance:
     - target: {fileID: 3874459068777829371, guid: 9b0663b3d1098e041815d9f8b1106a52, type: 3}
       propertyPath: m_InstanceId
       value: -17282
-      objectReference: {fileID: 0}
-    - target: {fileID: 3940022902277521549, guid: 9b0663b3d1098e041815d9f8b1106a52, type: 3}
-      propertyPath: m_Layer
-      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4115332630579715333, guid: 9b0663b3d1098e041815d9f8b1106a52, type: 3}
       propertyPath: m_Mesh
