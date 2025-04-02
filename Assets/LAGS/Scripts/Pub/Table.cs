@@ -25,7 +25,6 @@ namespace LAGS.Pub
 
         private void PrepareOrder()
         {
-            Debug.Log("Prepare Order");
             _order = new Order(_plates);
         }
         

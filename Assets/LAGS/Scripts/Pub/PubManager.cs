@@ -12,6 +12,7 @@ namespace LAGS.Managers.Pub
     {
         [Header("Pub")]
         [SerializeField] private Transform _pubDoors;
+        [SerializeField] private Transform _clientSpawnPoint;
         public Transform PubDoors => _pubDoors;
         
         [Header("Day")]
@@ -112,7 +113,7 @@ namespace LAGS.Managers.Pub
             
             for (var i = 0; i < totalClients; i++)
             {
-                var client = Instantiate(_clientPrefab, _pubDoors.position, _pubDoors.rotation)
+                var client = Instantiate(_clientPrefab, _pubDoors.position, Quaternion.identity, _clientSpawnPoint)
                     .GetComponent<Client>();
                 _clients.Add(client);
                 client.AssignTable(table);

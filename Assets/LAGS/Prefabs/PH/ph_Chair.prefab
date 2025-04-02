@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8445845072426361562}
   - component: {fileID: 5770255943102462751}
   - component: {fileID: 2234480144677778642}
+  - component: {fileID: 1435179056643925222}
   m_Layer: 0
   m_Name: ph_Chair
   m_TagString: Untagged
@@ -115,7 +116,7 @@ PolygonCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -160,7 +161,20 @@ MonoBehaviour:
   - {x: 0.5, y: -0.28866667, z: 0}
   m_ShapePathHash: 0
   m_Mesh: {fileID: 0}
-  m_InstanceId: 32502
+  m_InstanceId: 54536
   m_LocalBounds:
     m_Center: {x: 0, y: 0.21133333, z: 0}
     m_Extent: {x: 0.5, y: 0.5, z: 0}
+--- !u!114 &1435179056643925222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6383405139671673534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f847b4672aa0e4e4f82f27e467db09e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sittingPosition: {fileID: 965626253447079678}
