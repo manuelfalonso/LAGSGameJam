@@ -9,24 +9,24 @@ EditorBuildSettings:
     path: Assets/LAGS/Scenes/Game/MainMenu.unity
     guid: 8768e038bdf7dac4b9768aa6ee4f0a15
   - enabled: 1
-    path: Assets/LAGS/Scenes/Game/Day1.unity
+    path: Assets/LAGS/Scenes/Game/Day1_Sunday.unity
     guid: c36e37338bf79674680fdd8ddaf8e4dc
   - enabled: 1
-    path: Assets/LAGS/Scenes/Game/Day2.unity
+    path: Assets/LAGS/Scenes/Game/Day2_Monday.unity
     guid: a3f0be9b1e466da439e56a712a125e62
   - enabled: 1
-    path: Assets/LAGS/Scenes/Game/Day3.unity
+    path: Assets/LAGS/Scenes/Game/Day3_Tuesday.unity
     guid: 971123ad22d3414429471264bc26da47
   - enabled: 1
-    path: Assets/LAGS/Scenes/Game/Day4.unity
+    path: Assets/LAGS/Scenes/Game/Day4_Wednesday.unity
     guid: 682fe89ff0356c34297e6ea0dc42d3d6
   - enabled: 1
-    path: Assets/LAGS/Scenes/Game/Day5.unity
+    path: Assets/LAGS/Scenes/Game/Day5_Thursday.unity
     guid: 3afa3857b44b0014e8fc73abf8b22796
   - enabled: 1
-    path: Assets/LAGS/Scenes/Game/Day6.unity
+    path: Assets/LAGS/Scenes/Game/Day6_Friday.unity
     guid: 5456a0648a17bec41969a136ecc70856
   - enabled: 1
-    path: Assets/LAGS/Scenes/Game/Day7.unity
+    path: Assets/LAGS/Scenes/Game/Day7_Saturday.unity
     guid: 07bb36575afe6bc49828b57ce9366da8
   m_configObjects: {}
