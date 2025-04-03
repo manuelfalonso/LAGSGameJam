@@ -8,10 +8,13 @@ namespace LAGS.Player
     {
         [SerializeField] private Interact _interact;
         private List<Order> _orders = new ();
+        public List<Order> Orders => _orders;
+        
+        public Plate LeftPlate;
+        public Plate RightPlate;
         
         public void AddOrder(Order order)
         {
-            Debug.Log("Order added " + order);
             _orders.Add(order);
         }
     }
