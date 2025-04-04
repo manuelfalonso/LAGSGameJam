@@ -164,39 +164,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39635add429d524428b032f627805352, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _interactor: {fileID: 6504654706477911857}
-  _showLogs: 1
---- !u!1 &4206673833314342172
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8116507525006440279}
-  m_Layer: 0
-  m_Name: DragFollowTarget
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &8116507525006440279
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4206673833314342172}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.5, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 8318470776293252864}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  PlayerOrders: {fileID: 1665287438321936655}
 --- !u!1 &6504654706477911857
 GameObject:
   m_ObjectHideFlags: 0
@@ -213,7 +181,6 @@ GameObject:
   - component: {fileID: 1675490985058959413}
   - component: {fileID: 4063891294908919352}
   - component: {fileID: 1665287438321936655}
-  - component: {fileID: 5718617767412235917}
   m_Layer: 0
   m_Name: ph_Player
   m_TagString: Untagged
@@ -237,7 +204,6 @@ Transform:
   - {fileID: 8060995452869358474}
   - {fileID: 8055129320278985846}
   - {fileID: 7852368549488620785}
-  - {fileID: 8116507525006440279}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8952206974267236798
@@ -481,13 +447,21 @@ MonoBehaviour:
     m_ActionId: aeb5ee19-8ece-441e-8a52-f0d6ef070e99
     m_ActionName: UI/TrackedDeviceOrientation
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7743725400404876506}
+        m_TargetAssemblyTypeName: LAGS.Interact, LAGS
+        m_MethodName: InteractWith
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: eb000fa6-11c6-4220-9026-16dbf0731652
     m_ActionName: Player/Interact[/Keyboard/e]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 9d7404ac-1503-429a-960f-78f3d74c91d5
-    m_ActionName: Player/Drag[/Keyboard/space]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -506,21 +480,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _interact: {fileID: 7743725400404876506}
---- !u!114 &5718617767412235917
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6504654706477911857}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e60b419f0596ea4a983bc16957d214e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _interact: {fileID: 7743725400404876506}
-  _dragFollowTarget: {fileID: 8116507525006440279}
-  _dragActionName: Drag
 --- !u!1 &9033033540900593939
 GameObject:
   m_ObjectHideFlags: 0
