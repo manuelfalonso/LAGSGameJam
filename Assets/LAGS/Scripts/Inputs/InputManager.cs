@@ -10,12 +10,15 @@ namespace LAGS.Managers.Inputs
     public class InputManager : Singleton<InputManager>
     {
         #region Private Variables
+        [Header("References")]
         [SerializeField] private InputActionAsset _inputs;
+
+        [Header("Debug")]
+        [SerializeField] private bool _showLogs = true;
+
         private Dictionary<string, InputActionMap> _actionMaps = new();
         private Dictionary<string, InputAction> _inputActions = new();
         private HashSet<string> _previousEnableActions = new();
-        
-        [SerializeField] private bool _showLogs = true;
         #endregion
 
         #region MonoBehaviour Callbacks

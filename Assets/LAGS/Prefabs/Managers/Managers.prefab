@@ -10,8 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2125798118442925552}
   - component: {fileID: 3374790506660388624}
+  - component: {fileID: 8027044792695401172}
   m_Layer: 0
-  m_Name: GameManager
+  m_Name: Managers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46,3 +47,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AutoUnpartentOnAwake: 1
   _data: {fileID: 11400000, guid: 3d72365ae088612488b77ed7bb5dca84, type: 2}
+  LevelStarted:
+    m_PersistentCalls:
+      m_Calls: []
+  LevelFinished:
+    m_PersistentCalls:
+      m_Calls: []
+  _levelProgression: 0
+--- !u!114 &8027044792695401172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4230200264764923346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c76f888881feca4486a3f6db5c7549e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _inputs: {fileID: -944628639613478452, guid: 2e5ed64877d16a143bab8f789b71164b, type: 3}
+  _showLogs: 1
