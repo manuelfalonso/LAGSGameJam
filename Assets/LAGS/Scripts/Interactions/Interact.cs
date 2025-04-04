@@ -1,9 +1,12 @@
+using LAGS.Player;
 using UnityEngine;
 
 namespace LAGS
 {
     public class Interact : MonoBehaviour
     {
+        public PlayerOrders PlayerOrders;
+
         [Header("References")]
         [SerializeField] private GameObject _interactor;
 
