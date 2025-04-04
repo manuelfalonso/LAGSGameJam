@@ -595,6 +595,110 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &100886451
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 100886454}
+  - component: {fileID: 100886453}
+  - component: {fileID: 100886452}
+  m_Layer: 0
+  m_Name: Bottom Layout Colliders
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!60 &100886452
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100886451}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 1.958812, y: 3.1923003}
+      - {x: 9.795984, y: 0.12676728}
+      - {x: 9.885597, y: -10.023695}
+      - {x: -10.921086, y: -10.011765}
+      - {x: -10.6036, y: -0.19070601}
+      - {x: -6.412144, y: -0.16284904}
+      - {x: -6.405736, y: -3.5885446}
+      - {x: 6.5252743, y: -3.5813026}
+      - {x: 6.48369, y: -1.6268213}
+      - {x: 1.7769616, y: 0.7668571}
+  m_UseDelaunayMesh: 0
+--- !u!114 &100886453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100886451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9809bf1345abc5648af68b3a82653f08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 1
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff
+--- !u!4 &100886454
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100886451}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &125518847
 GameObject:
   m_ObjectHideFlags: 0
@@ -856,68 +960,15 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 214977908}
-  - component: {fileID: 214977907}
   - component: {fileID: 214977909}
+  - component: {fileID: 214977910}
   m_Layer: 0
-  m_Name: Layout Colliders
+  m_Name: Kitchen Layout Colliders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!68 &214977907
-EdgeCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 214977906}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_EdgeRadius: 0
-  m_Points:
-  - {x: -6.533379, y: -0.28040814}
-  - {x: -5.4912753, y: 0.4623313}
-  - {x: -3.7522607, y: -0.46491784}
-  - {x: -2.3360262, y: 0.5558334}
-  - {x: -2.1565244, y: 0.46834278}
-  - {x: -1.8734026, y: 0.36638662}
-  - {x: -1.5771484, y: 0.35526365}
-  - {x: -1.2076504, y: 0.39071807}
-  - {x: -0.9475132, y: 0.4732566}
-  - {x: -0.7160663, y: 0.60350794}
-  - {x: 0.83404905, y: -0.18016824}
-  - {x: 1.2208142, y: -0.18352196}
-  - {x: 2.2488241, y: 0.54329}
-  - {x: 6.5018125, y: -1.7043352}
-  m_AdjacentStartPoint: {x: 0, y: 0}
-  m_AdjacentEndPoint: {x: 0, y: 0}
-  m_UseAdjacentStartPoint: 0
-  m_UseAdjacentEndPoint: 0
 --- !u!4 &214977908
 Transform:
   m_ObjectHideFlags: 0
@@ -949,6 +1000,67 @@ MonoBehaviour:
   m_Area: 1
   m_IgnoreFromBuild: 0
   m_AffectedAgents: ffffffff
+--- !u!60 &214977910
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 214977906}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -6.5001574, y: 4.152721}
+      - {x: -6.435337, y: -0.20343614}
+      - {x: -5.50534, y: 0.4562251}
+      - {x: -3.6709197, y: -0.5012405}
+      - {x: -2.3314016, y: 0.5113859}
+      - {x: -2.1271818, y: 0.41943565}
+      - {x: -1.8380148, y: 0.3612388}
+      - {x: -1.5058016, y: 0.35795483}
+      - {x: -1.2385037, y: 0.39785826}
+      - {x: -0.9373878, y: 0.47919616}
+      - {x: -0.8087267, y: 0.5484667}
+      - {x: -0.68710196, y: 0.64322937}
+      - {x: 0.88789535, y: -0.1808555}
+      - {x: 1.2242388, y: -0.18111795}
+      - {x: 2.14857, y: 0.54752314}
+      - {x: 2.024953, y: 4.4797163}
+  m_UseDelaunayMesh: 0
 --- !u!1 &282027566
 GameObject:
   m_ObjectHideFlags: 0
@@ -1236,6 +1348,10 @@ MonoBehaviour:
   - {fileID: 569994159}
   - {fileID: 2066090223}
   - {fileID: 1533373876}
+  _startingPoints: 100
+  _addedTimeToWait: 15
+  _reducePointsForPlateDelayed: 5
+  _extraReducePoints: 1
 --- !u!4 &394500464
 Transform:
   m_ObjectHideFlags: 0
@@ -1870,6 +1986,10 @@ MonoBehaviour:
   _chairs:
   - {fileID: 995670534}
   - {fileID: 1668327783}
+  _startingPoints: 100
+  _addedTimeToWait: 15
+  _reducePointsForPlateDelayed: 5
+  _extraReducePoints: 1
 --- !u!114 &629905169
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3191,6 +3311,10 @@ MonoBehaviour:
   _chairs:
   - {fileID: 49324393}
   - {fileID: 898171387}
+  _startingPoints: 100
+  _addedTimeToWait: 15
+  _reducePointsForPlateDelayed: 5
+  _extraReducePoints: 1
 --- !u!4 &1006552355
 Transform:
   m_ObjectHideFlags: 0
@@ -4720,6 +4844,10 @@ MonoBehaviour:
   - {fileID: 935254631}
   - {fileID: 824957307}
   - {fileID: 1130114708}
+  _startingPoints: 100
+  _addedTimeToWait: 15
+  _reducePointsForPlateDelayed: 5
+  _extraReducePoints: 1
 --- !u!4 &1296448564
 Transform:
   m_ObjectHideFlags: 0
@@ -7349,9 +7477,10 @@ SceneRoots:
   - {fileID: 1006552355}
   - {fileID: 1296448564}
   - {fileID: 394500464}
-  - {fileID: 214977908}
   - {fileID: 1066663364}
   - {fileID: 1678332800}
   - {fileID: 1134589643}
   - {fileID: 1125379749}
   - {fileID: 1868924862}
+  - {fileID: 214977908}
+  - {fileID: 100886454}
