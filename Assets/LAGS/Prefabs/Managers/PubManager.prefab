@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 945905214706923957}
   - component: {fileID: 4520977095968695895}
   m_Layer: 0
-  m_Name: Manager
+  m_Name: PubManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -58,15 +58,19 @@ MonoBehaviour:
   - Name: Milanesa
     PlateSprite: {fileID: 0}
     TimeToPrepare: 10
+    Status: 0
   - Name: Bondiola
     PlateSprite: {fileID: 0}
     TimeToPrepare: 10
+    Status: 0
   - Name: "\xD1oquis"
     PlateSprite: {fileID: 0}
     TimeToPrepare: 10
+    Status: 0
   - Name: Tortilla
     PlateSprite: {fileID: 0}
     TimeToPrepare: 10
+    Status: 0
 --- !u!1 &828473119108042988
 GameObject:
   m_ObjectHideFlags: 0

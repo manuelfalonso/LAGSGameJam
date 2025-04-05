@@ -38,7 +38,7 @@ namespace LAGS.Pub
 
             var canTake = false;
 
-            foreach (var plate in _order.Plates.Where(plate => plate.Status is OrderStatus.Request))
+            foreach (var plate in _order.Plates.Where(plate => plate.Status is OrderStatus.Ready))
             {
                 canTake = true;
             }
@@ -74,6 +74,7 @@ namespace LAGS.Pub
         private void PrepareOrder()
         {
             _order = new Order(_plates, this);
+            Debug.Log("Order prepared");
         }
         
         public void SitClient(Client client)
@@ -122,26 +123,30 @@ namespace LAGS.Pub
             if (!interactor.TryGetComponent(out Interact interact)) { return; }
             
             var player = interact.PlayerOrders;
-
-            if(player.Orders.Count <= 0){ return; }
-
+            
             if (!player.Orders.Contains(_order))
             {
                 if (_order.Plates[0].Status is not OrderStatus.Request) { return; }
+                
                 _order.SetOrderStatus(OrderStatus.InProgress);
                 player.AddOrder(_order);
 
-                _currentTimeToWait = _order.Plates.Select(plate => plate.TimeToPrepare).Prepend(0f).Max() + _addedTimeToWait;
+                _currentTimeToWait = _order.Plates.Max(p => p.TimeToPrepare) + _addedTimeToWait;
                 return;
             }
 
-            for (var i = 0; i < _order.Plates.Count; i++)
+            foreach (var plate in _order.Plates)
             {
-                if (_order.Plates[i].Equals(player.LeftPlate) || _order.Plates[i].Equals(player.RightPlate))
+                if (plate.Equals(player.LeftPlate))
                 {
-                    var p = _order.Plates[i];
-                    p.Status = OrderStatus.Delivered;
-                    _order.Plates[i] = p;
+                    Debug.Log("Delivered");
+                    player.RemovePlates(true);
+                    plate.ChangeStatus(OrderStatus.Delivered);
+                }
+                else if (plate.Equals(player.RightPlate))
+                {
+                    player.RemovePlates(false);
+                    plate.ChangeStatus(OrderStatus.Delivered);
                 }
             }
             
