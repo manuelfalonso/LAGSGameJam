@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90657a17b795314439f31cc6bbbfadf7, type: 3}
   m_Name: PuddleSpawnData
   m_EditorClassIdentifier: 
-  ObjectToSpawn: {fileID: 6793069066678693151, guid: 248ee869936b43a4fb130f7c060ae303, type: 3}
+  ObjectToSpawn:
+  - {fileID: 4465506983801336560, guid: 598fe04371bc8a641a81d09b5004bdb9, type: 3}
+  - {fileID: 8469295089254829861, guid: 658b44778f76aac498bf2d569474a7d6, type: 3}
   TimeBetweenSpawns:
     MinValue: 15
     MaxValue: 15

@@ -24,7 +24,7 @@ namespace LAGS
                 if (_showLogs)
                     Debug.Log("Interact enter " + interactable, this);
 
-                interactable.Interact(gameObject);
+                interactable.Interact(_interactor);
             }
 
             //Debug.LogError(_isDragging, this);
@@ -58,7 +58,7 @@ namespace LAGS
                 if (_showLogs)
                     Debug.Log("Interact exit " + interactable, this);
 
-                interactable.InteractExit(gameObject);
+                interactable.InteractExit(_interactor);
             }
         }
 

@@ -83,6 +83,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a0e546b5fe6f1e499bec02cf2129c45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _puddleCleaned: {fileID: 11400000, guid: 56533b14cc11a784c9adf9fe1c752cc3, type: 2}
 --- !u!114 &5752655028852268607
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -184,7 +185,7 @@ MonoBehaviour:
   animationType: 5
   targetType: 11
   forcedTargetType: 0
-  autoPlay: 0
+  autoPlay: 1
   useTargetAsV3: 0
   endValueFloat: 1
   endValueV3: {x: 0, y: 0, z: 0}

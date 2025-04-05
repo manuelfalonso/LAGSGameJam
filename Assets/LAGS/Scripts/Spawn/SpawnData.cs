@@ -7,7 +7,7 @@ namespace LAGS
     public class SpawnData : ScriptableObject
     {
         [Header("Spawn Settings")]
-        public GameObject ObjectToSpawn;
+        public GameObject[] ObjectToSpawn;
         public RangedFloat TimeBetweenSpawns;
         public bool AllowConsecutiveRepeatSpawns = false;
         public int MaxSpawns = 3;

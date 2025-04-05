@@ -16,7 +16,7 @@ namespace LAGS
         [SerializeField] private string _isMovingParameterName = "IsMoving";
         [SerializeField] private string _onePlateParameterName = "OnePlate";
         [SerializeField] private string _twoPlateParameterName = "TwoPlates";
-        [SerializeField] private string _cleanParameterName = "Clean";
+        [SerializeField] private string _cleanParameterName = "IsCleaning";
 
         // Update is called once per frame
         void Update()

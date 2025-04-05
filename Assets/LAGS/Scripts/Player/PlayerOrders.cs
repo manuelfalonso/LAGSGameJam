@@ -13,7 +13,7 @@ namespace LAGS.Player
         
         private List<Order> _orders = new ();
         public List<Order> Orders => _orders;
-        public bool HasEmptyHands => LeftPlate is null && RightPlate is null;
+        public bool HasEmptyHands => !LeftPlate.HasValue && !RightPlate.HasValue;
         
         [HideInInspector] public Plate? LeftPlate;
         [HideInInspector] public Plate? RightPlate;

@@ -66,7 +66,10 @@ namespace LAGS
 
             if (spawn.CurrentSpawns < spawn.SpawnData.MaxSpawns)
             {
-                Instantiate(spawn.SpawnData.ObjectToSpawn, GetRandomSpawnPoint(spawn).position, Quaternion.identity);
+                Instantiate(
+                    spawn.SpawnData.ObjectToSpawn[Random.Range(0, spawn.SpawnData.ObjectToSpawn.Length - 1)], 
+                    GetRandomSpawnPoint(spawn).position, 
+                    Quaternion.identity);
                 spawn.CurrentSpawns++;
             }
         }

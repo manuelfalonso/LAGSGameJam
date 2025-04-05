@@ -43,7 +43,7 @@ namespace LAGS
             if ((_currentTimeToClearPuddle - _timeToClearPuddleExtraMargin) <= 0)
             {
                 // Destroy the LeakAndPuddle component
-                Destroy(transform.parent);
+                Destroy(transform.parent.gameObject);
             }
         }
 

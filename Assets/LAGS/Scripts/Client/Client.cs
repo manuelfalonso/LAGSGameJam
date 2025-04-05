@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using LAGS.Managers.Pub;
@@ -26,6 +27,7 @@ namespace LAGS.Clients
         [SerializeField] private float _focusTime = 2f;
         [SerializeField] private int _ratDetectedReducePoints = 60;
         [SerializeField] private int _ratAlertedReducePoints = 10;
+        [SerializeField] private int _puddleDetectedReducePoints = 5;
         private float _currentFocusTime;
         
         private Plate _plate;
@@ -38,6 +40,7 @@ namespace LAGS.Clients
         private bool _isSitting;
         private bool _pointsReduced;
         private List<Transform> _rats = new();
+        private List<Transform> _puddles = new();
         private LineOfSight.IsInSightData _data;
 
         private void Start()
@@ -51,32 +54,64 @@ namespace LAGS.Clients
         private void Update()
         {
             RotateClient();
-            CheckRatDetection();
+            CheckHazards();
             ClientAlert();
             Eat();
         }
 
-        private void OnTriggerEnter2D(Collider2D other) 
+        private void OnTriggerEnter2D(Collider2D other)
         {
-            if(!_isSitting) { return; }
-            
-            if(!other.TryGetComponent<Rat>(out var rat)) { return; }
-            
+            if (!_isSitting) { return; }
+
+            RatEnterDetection(other);
+            PuddleEnterDetection(other);
+        }
+
+        private void OnTriggerExit2D(Collider2D other)
+        {
+            if (!_isSitting) { return; }
+
+            RatExitDetection(other);
+            PuddleExitDetection(other);
+        }
+
+        private void RatEnterDetection(Collider2D other)
+        {
+            if (!other.TryGetComponent<Rat>(out var rat)) { return; }
+
             if (!_rats.Contains(rat.transform))
             {
                 _rats.Add(rat.transform);
             }
         }
 
-        private void OnTriggerExit2D(Collider2D other)
+        private void PuddleEnterDetection(Collider2D other)
         {
-            if(!_isSitting) { return; }
-            
-            if(!other.TryGetComponent<Rat>(out var rat)) { return; }
-            
+            if (!other.TryGetComponent<Puddle>(out var puddle)) { return; }
+
+            if (!_puddles.Contains(puddle.transform))
+            {
+                _puddles.Add(puddle.transform);
+            }
+        }
+
+        private void RatExitDetection(Collider2D other)
+        {
+            if (!other.TryGetComponent<Rat>(out var rat)) { return; }
+
             if (_rats.Contains(rat.transform))
             {
                 _rats.Remove(rat.transform);
+            }
+        }
+
+        private void PuddleExitDetection(Collider2D other)
+        {
+            if (!other.TryGetComponent<Puddle>(out var puddle)) { return; }
+
+            if (_puddles.Contains(puddle.transform))
+            {
+                _puddles.Remove(puddle.transform);
             }
         }
 
@@ -97,9 +132,15 @@ namespace LAGS.Clients
             }
         }
         
-        private void CheckRatDetection()
+        private void CheckHazards()
         {
-            if(_rats.Count <= 0 || _isAlert) { return; }
+            CheckRatHazard();
+            CheckPuddleHazard();
+        }
+
+        private void CheckRatHazard()
+        {
+            if (_rats.Count <= 0 || _isAlert) { return; }
 
             foreach (var rat in _rats)
             {
@@ -110,13 +151,34 @@ namespace LAGS.Clients
                     ObstaclesMask = _obstacleMask,
                     Is2D = true
                 };
-                
+
                 if (!LineOfSight.IsInFieldOfViewAndInSight(data, _fovAngle)) { continue; }
-                
+
                 _isAlert = true;
                 _currentFocusTime = _focusTime;
                 _data = data;
                 _table.ReducePoints(_ratAlertedReducePoints, Reason.RatAlerted);
+                break;
+            }
+        }
+
+        private void CheckPuddleHazard()
+        {
+            if (_puddles.Count <= 0) { return; }
+
+            foreach (var puddle in _puddles)
+            {
+                var data = new LineOfSight.IsInSightData
+                {
+                    StartPoint = _head,
+                    EndPoint = puddle,
+                    ObstaclesMask = _obstacleMask,
+                    Is2D = true
+                };
+
+                if (!LineOfSight.IsInFieldOfViewAndInSight(data, _fovAngle)) { continue; }
+
+                _table.ReducePoints(_puddleDetectedReducePoints, Reason.PuddleDetected);
                 break;
             }
         }
