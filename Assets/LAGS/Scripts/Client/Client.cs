@@ -128,6 +128,7 @@ namespace LAGS.Clients
                 transform.position = _chair.transform.position;
                 _agent.isStopped = true;
                 _isSitting = true;
+                _agent.enabled = false;
                 _fov.SetActive(true);
             }
         }
@@ -152,8 +153,10 @@ namespace LAGS.Clients
                     Is2D = true
                 };
 
-                if (!LineOfSight.IsInFieldOfViewAndInSight(data, _fovAngle)) { continue; }
-
+                if (!LineOfSight.IsInFieldOfViewAndInSight(data, _fovAngle, out var hit)) { continue; }
+                
+                if(hit.collider.TryGetComponent(out Table table)){ if(table == _table) { continue; } }
+                
                 _isAlert = true;
                 _currentFocusTime = _focusTime;
                 _data = data;
@@ -187,7 +190,7 @@ namespace LAGS.Clients
         {
             if(!_isAlert || _pointsReduced) { return; }
 
-            if (!LineOfSight.IsInFieldOfViewAndInSight(_data, _fovAngle))
+            if (!LineOfSight.IsInFieldOfViewAndInSight(_data, _fovAngle, out var hits))
             {
                 _isAlert = false;
                 return;
@@ -209,6 +212,7 @@ namespace LAGS.Clients
             _table.LeaveTable(this);
             _chair.Leave();
             _isSitting = false;
+            _agent.enabled = true;  
             _isEscaping = true;
             _agent.isStopped = false;
             _agent.SetDestination(PubManager.Instance.PubDoors.position);

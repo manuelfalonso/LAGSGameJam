@@ -1,4 +1,5 @@
-﻿using System;
+﻿using System.Collections;
+using NaughtyAttributes;
 using System.Collections.Generic;
 using System.Linq;
 using LAGS.Clients;
@@ -9,18 +10,35 @@ namespace LAGS.Pub
     public class Table : MonoBehaviour, IInteractable
     {
         [SerializeField] private List<Chair> _chairs = new();
+        [SerializeField] private GameObject _orderReadyMarker;
+        
+        [Header("Rating Settings")]
         [SerializeField] private int _startingPoints = 100;
+        [SerializeField] private float _ratingTime = 2f;
+        [SerializeField] private int _pointsToReduce = 10;
+        [MinMaxSlider(0, 100)] [SerializeField] private Vector2 _threeStarsRating;
+        [MinMaxSlider(0, 100)] [SerializeField] private Vector2 _twoStarsRating;
+        [MinMaxSlider(0, 100)] [SerializeField] private Vector2 _oneStarsRating;
+        [MinMaxSlider(0, 100)] [SerializeField] private Vector2 _zeroStarsRating;
+        private int _currentPoints;
+        private int _currentPointsToReduce;
+        
+        [Header("Waiting Settings")]
         [SerializeField] private float _addedTimeToWait = 15f;
         [SerializeField] private int _reducePointsForPlateDelayed = 5;
         [SerializeField] private int _extraReducePoints = 1;
-        [SerializeField] private GameObject _orderReadyMarker;
+        private float _currentTimeToWait;
+        
+        [Header("UI Settings")]
+        [SerializeField] private List<SpriteRenderer> _starsPositions = new();
+        [SerializeField] private float _timeToHideStars = 2f;
+        [SerializeField] private Sprite _goodStarSprite;
+        [SerializeField] private Sprite _badStarSprite;
+        
         private List<Client> _clients = new();
         private bool _isEmpty;
         private List<Plate> _plates = new();
         private Order _order;
-        private int _currentPoints;
-        private int _currentPointsToReduce;
-        private float _currentTimeToWait;
         
         private Dictionary<Reason, bool> _reasons = new()
         {
@@ -98,6 +116,7 @@ namespace LAGS.Pub
             _order = null;
             _isEmpty = true;
             _plates.Clear();
+            CalculateReview();
         }
         
         public void AddPlate(Plate plate)
@@ -178,16 +197,13 @@ namespace LAGS.Pub
             _currentPoints -= amount;
             
             if(_currentPoints > 0) { return; }
+
+            CalculateReview();
             
             foreach (var client in _clients)
             {
                 client.Escape();
             }
-        }
-
-        public void InteractExit(GameObject interactor)
-        {
-            // noop
         }
     }
     
