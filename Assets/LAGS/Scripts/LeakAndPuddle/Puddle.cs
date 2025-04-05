@@ -1,6 +1,5 @@
+using LAGS.Player;
 using SombraStudios.Shared.Patterns.Behavioural.Observer.ScriptableObjects;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace LAGS
@@ -50,17 +49,31 @@ namespace LAGS
 
         public void Interact(GameObject interactor)
         {
-            // Switch clean animation on Player
+            // Validate if interactor PlayerOrders has the hands empty
+            if (interactor.TryGetComponent(out PlayerOrders playerOrders))
+            {
+                if (playerOrders.HasEmptyHands)
+                {
+                    // Switch clean animation on Player
+                    if (interactor.TryGetComponent(out PlayerAnimations playerAnimations))
+                    {
+                        playerAnimations.SetClean(true);
+                    }
 
-            _isInteracting = true;
+                    _isInteracting = true;
+                }
+            }
         }
 
         public void InteractExit(GameObject interactor)
         {
             // Switch clean animation on Player
+            if (interactor.TryGetComponent(out PlayerAnimations playerAnimations))
+            {
+                playerAnimations.SetClean(false);
+            }
 
             // Execute interaction
-            //Clean(Time.deltaTime);
             _isInteracting = false;
         }
     }

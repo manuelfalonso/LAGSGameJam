@@ -16,6 +16,7 @@ namespace LAGS
         [SerializeField] private string _isMovingParameterName = "IsMoving";
         [SerializeField] private string _onePlateParameterName = "OnePlate";
         [SerializeField] private string _twoPlateParameterName = "TwoPlates";
+        [SerializeField] private string _cleanParameterName = "Clean";
 
         // Update is called once per frame
         void Update()
@@ -67,6 +68,17 @@ namespace LAGS
             }
 
             _animator.SetBool(_twoPlateParameterName, value);
+        }
+
+        public void SetClean(bool value)
+        {
+            if (_animator == null)
+            {
+                Debug.LogError("Missing reference", this);
+                return;
+            }
+
+            _animator.SetBool(_cleanParameterName, value);
         }
     }
 }
