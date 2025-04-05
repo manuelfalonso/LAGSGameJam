@@ -13,6 +13,7 @@ namespace LAGS.Pub
         [SerializeField] private float _addedTimeToWait = 15f;
         [SerializeField] private int _reducePointsForPlateDelayed = 5;
         [SerializeField] private int _extraReducePoints = 1;
+        [SerializeField] private GameObject _orderReadyMarker;
         private List<Client> _clients = new();
         private bool _isEmpty;
         private List<Plate> _plates = new();
@@ -32,13 +33,10 @@ namespace LAGS.Pub
 
         public bool IsEmpty => _isEmpty;
         private bool CanTakeOrder() 
-        { 
-            if(_order == null) { return false; }
-            if(_isEmpty) { return false; }
-
+        {
             var canTake = false;
 
-            foreach (var plate in _order.Plates.Where(plate => plate.Status is OrderStatus.Ready))
+            foreach (var plate in _order.Plates.Where(plate => plate.Status is OrderStatus.Request))
             {
                 canTake = true;
             }
@@ -74,7 +72,7 @@ namespace LAGS.Pub
         private void PrepareOrder()
         {
             _order = new Order(_plates, this);
-            Debug.Log("Order prepared");
+            _orderReadyMarker.SetActive(true);
         }
         
         public void SitClient(Client client)
@@ -97,6 +95,7 @@ namespace LAGS.Pub
         public void LeaveTable(Client client)
         {
             _clients.Remove(client);
+            _order = null;
             _isEmpty = true;
             _plates.Clear();
         }
@@ -118,35 +117,43 @@ namespace LAGS.Pub
 
         public void Interact(GameObject interactor)
         {
-            if(!CanTakeOrder()) { return; }
-
+            if(_order == null || _isEmpty) { return; }
+            
             if (!interactor.TryGetComponent(out Interact interact)) { return; }
             
             var player = interact.PlayerOrders;
             
-            if (!player.Orders.Contains(_order))
+            if(CanTakeOrder())
             {
-                if (_order.Plates[0].Status is not OrderStatus.Request) { return; }
+                if (player.Orders.Contains(_order)) { return; }
                 
+                if (_order.Plates[0].Status is not OrderStatus.Request) { return; }
+
                 _order.SetOrderStatus(OrderStatus.InProgress);
                 player.AddOrder(_order);
-
+                _orderReadyMarker.SetActive(false);
                 _currentTimeToWait = _order.Plates.Max(p => p.TimeToPrepare) + _addedTimeToWait;
                 return;
             }
 
             foreach (var plate in _order.Plates)
             {
-                if (plate.Equals(player.LeftPlate))
+                if (plate.Id.Equals(player.LeftPlate?.Id))
                 {
                     Debug.Log("Delivered");
                     player.RemovePlates(true);
                     plate.ChangeStatus(OrderStatus.Delivered);
+                    var client = _clients.Find(p => p.Plate.Id == plate.Id);
+                    client.UpdatePlateReference(plate);
+                    client.Chair.SetFoodSprite(plate.PlateSprite);
                 }
-                else if (plate.Equals(player.RightPlate))
+                else if (plate.Id.Equals(player.RightPlate?.Id))
                 {
                     player.RemovePlates(false);
                     plate.ChangeStatus(OrderStatus.Delivered);
+                    var client = _clients.Find(p => p.Plate.Id == plate.Id);
+                    client.UpdatePlateReference(plate);
+                    client.Chair.SetFoodSprite(plate.PlateSprite);
                 }
             }
             

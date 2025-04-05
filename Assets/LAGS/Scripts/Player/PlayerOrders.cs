@@ -8,11 +8,14 @@ namespace LAGS.Player
     public class PlayerOrders : MonoBehaviour
     {
         [SerializeField] private Interact _interact;
+        [SerializeField] private SpriteRenderer _leftPlate;
+        [SerializeField] private SpriteRenderer _rightPlate;
+        
         private List<Order> _orders = new ();
         public List<Order> Orders => _orders;
         
-        public Plate? LeftPlate;
-        public Plate? RightPlate;
+        [HideInInspector] public Plate? LeftPlate;
+        [HideInInspector] public Plate? RightPlate;
         
         public UnityEvent<bool> OnePlateSet;
         public UnityEvent<bool> TwoPlateSet;
@@ -34,11 +37,15 @@ namespace LAGS.Player
             {
                 LeftPlate = plate;
                 OnePlateSet?.Invoke(true);
+                _leftPlate.sprite = plate.PlateSprite;
+                _leftPlate.gameObject.SetActive(true);
             }
             else
             {
                 RightPlate = plate;
                 TwoPlateSet?.Invoke(true);
+                _rightPlate.sprite = plate.PlateSprite;
+                _rightPlate.gameObject.SetActive(true);
             }
         }
 
@@ -48,11 +55,15 @@ namespace LAGS.Player
             {
                 LeftPlate = null;
                 OnePlateSet?.Invoke(false);
+                _leftPlate.gameObject.SetActive(false);
+                _leftPlate.sprite = null;
             }
             else
             {
                 RightPlate = null;
                 TwoPlateSet?.Invoke(false);
+                _rightPlate.gameObject.SetActive(false);
+                _rightPlate.sprite = null;
             }
         }
         

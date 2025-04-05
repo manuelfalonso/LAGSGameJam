@@ -17,6 +17,8 @@ namespace LAGS.Clients
         [Header("Basic Settings")]
         [SerializeField] private float _clientSpeed;
         [SerializeField] private float _timeToOrder;
+        [SerializeField] private float _eatingTime;
+        private float _currentEatingTime;
         [Header("Field of View Settings")]
         [SerializeField] private float _fovAngle;
         [SerializeField] private LayerMask _obstacleMask;
@@ -27,8 +29,10 @@ namespace LAGS.Clients
         private float _currentFocusTime;
         
         private Plate _plate;
+        public Plate Plate => _plate;
         private Table _table;
         private Chair _chair;
+        public Chair Chair => _chair;
         private bool _isAlert;
         private bool _isEscaping;
         private bool _isSitting;
@@ -41,6 +45,7 @@ namespace LAGS.Clients
             _agent.updateRotation = false;
             _agent.updateUpAxis = false;
             _agent.speed = _clientSpeed;
+            _currentEatingTime = _eatingTime;
         }
 
         private void Update()
@@ -48,6 +53,7 @@ namespace LAGS.Clients
             RotateClient();
             CheckRatDetection();
             ClientAlert();
+            Eat();
         }
 
         private void OnTriggerEnter2D(Collider2D other) 
@@ -85,7 +91,6 @@ namespace LAGS.Clients
                 }
                 
                 transform.position = _chair.transform.position;
-                transform.localRotation = _chair.SittingPosition.localRotation * Quaternion.Euler(0, 0, 90);
                 _agent.isStopped = true;
                 _isSitting = true;
                 _fov.SetActive(true);
@@ -140,6 +145,7 @@ namespace LAGS.Clients
         public void Escape()
         {
             _table.LeaveTable(this);
+            _chair.Leave();
             _isSitting = false;
             _isEscaping = true;
             _agent.isStopped = false;
@@ -148,9 +154,28 @@ namespace LAGS.Clients
         
         private void GetPlate()
         {
-            _plate = PubManager.Instance.GetRandomPlate();
+            var plate = PubManager.Instance.GetRandomPlate();
+            plate.GenerateId($"{gameObject.name}_{plate.Name}");
+            _plate = plate;
             _table.AddPlate(_plate);
             Debug.Log("Plate chosen");
+        }
+
+        private void Eat()
+        {
+            if (!_isSitting || _plate.Status is not OrderStatus.Delivered || _isEscaping) { return; }
+            
+            _currentEatingTime -= Time.deltaTime;
+                
+            if (_currentEatingTime <= 0)
+            {
+                Escape();
+            }
+        }
+
+        public void UpdatePlateReference(Plate plate)
+        {
+            _plate = plate;
         }
         
         public void AssignTable(Table table)
@@ -169,6 +194,7 @@ namespace LAGS.Clients
 
         private IEnumerator WaitToOrder()
         {
+            yield return new WaitUntil(() => _isSitting);
             yield return new WaitForSeconds(_timeToOrder);
             GetPlate();
         }

@@ -10,7 +10,14 @@ namespace LAGS.Pub
         public Sprite PlateSprite;
         public float TimeToPrepare;
         [HideInInspector] public OrderStatus Status;
-
+        private string _id;
+        public string Id => _id;
+        
+        public void GenerateId(string id)
+        {
+            _id = id;
+        }
+        
         public Plate Tick()
         {
             TimeToPrepare -= Time.deltaTime;
@@ -18,7 +25,7 @@ namespace LAGS.Pub
             if (TimeToPrepare > 0) { return this; }
             
             TimeToPrepare = 0;
-            Status = OrderStatus.Ready;
+            ChangeStatus(OrderStatus.Ready);
             return this;
         }
         

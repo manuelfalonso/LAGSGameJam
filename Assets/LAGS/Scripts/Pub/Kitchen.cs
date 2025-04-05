@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using LAGS.Pub;
 using UnityEngine;
 
@@ -6,6 +7,7 @@ namespace LAGS
 {
     public class Kitchen : MonoBehaviour, IInteractable
     {
+        [SerializeField] private List<SpriteRenderer> _visualPlates;
         private List<Plate> _plates = new();
         private List<Plate> _readyPlates = new();
 
@@ -38,7 +40,9 @@ namespace LAGS
                 
                 if (plate.Status != OrderStatus.Ready) { continue; }
                 
-                Debug.Log("Plate is ready");;
+                var visualPlate = _visualPlates.First(visualPlate => !visualPlate.gameObject.activeInHierarchy);
+                visualPlate.gameObject.SetActive(true);
+                visualPlate.sprite = plate.PlateSprite;
                 _readyPlates.Add(plate);
                 _plates.RemoveAt(i);
             }
@@ -65,11 +69,27 @@ namespace LAGS
                 if (!player.IsHandOccupied(true))
                 {
                     player.SetPlates(_readyPlates[i], true);
+                    
+                    var visual = _visualPlates.Find(plate => plate.sprite == _readyPlates[i].PlateSprite);
+                    if (visual != null)
+                    {
+                        visual.gameObject.SetActive(false);
+                        visual.sprite = null;
+                    }
+                    
                     _readyPlates.RemoveAt(i);
                 }
                 else if (!player.IsHandOccupied(false))
                 {
                     player.SetPlates(_readyPlates[i], false);
+                    
+                    var visual = _visualPlates.Find(plate => plate.sprite == _readyPlates[i].PlateSprite);
+                    if (visual != null)
+                    {
+                        visual.gameObject.SetActive(false);
+                        visual.sprite = null;
+                    }
+                    
                     _readyPlates.RemoveAt(i);
                 }
                 else { break; }
