@@ -19,16 +19,6 @@ namespace LAGS.Pub
             }
             Table = table;
         }
-
-        public void Tick()
-        {
-            foreach (var plate in Plates)
-            {
-                if(plate.Status is not OrderStatus.InProgress) { return; }
-                
-                plate.Tick();
-            }
-        }
         
         public void SetOrderStatus(OrderStatus status)
         {

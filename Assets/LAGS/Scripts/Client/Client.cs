@@ -89,14 +89,7 @@ namespace LAGS.Clients
                 _agent.isStopped = true;
                 _isSitting = true;
                 _fov.SetActive(true);
-                return;
             }
-            
-            if (!(_agent.velocity.sqrMagnitude > 0.01f)) { return; }
-            
-            var direction = _agent.velocity.normalized;
-            var angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.Euler(0, 0, angle);
         }
         
         private void CheckRatDetection()
@@ -157,6 +150,7 @@ namespace LAGS.Clients
         {
             _plate = PubManager.Instance.GetRandomPlate();
             _table.AddPlate(_plate);
+            Debug.Log("Plate chosen");
         }
         
         public void AssignTable(Table table)

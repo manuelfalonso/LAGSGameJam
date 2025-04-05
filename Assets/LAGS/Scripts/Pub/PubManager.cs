@@ -71,9 +71,15 @@ namespace LAGS.Managers.Pub
         private void ManageDayTime()
         {
             if(_isDayOver) { return; }
-            
-            if (_currentTime >= _dayDuration) { _isDayOver = true; }
-            else { _currentTime += Time.deltaTime; }
+
+            if (_currentTime >= _dayDuration)
+            {
+                _isDayOver = true;
+            }
+            else
+            {
+                _currentTime += Time.deltaTime;
+            }
             
             if(_isDoorClosed) { return; }
             
