@@ -205,6 +205,52 @@ namespace LAGS.Pub
                 client.Escape();
             }
         }
+        
+        private void CalculateReview()
+        {
+            var goodStars = 0;
+
+            if (_currentPoints >= _threeStarsRating.x && _currentPoints <= _threeStarsRating.y)
+            {
+                goodStars = 3;
+            }
+            else if (_currentPoints >= _twoStarsRating.x && _currentPoints <= _twoStarsRating.y)
+            {
+                goodStars = 2;
+            }
+            else if (_currentPoints >= _oneStarsRating.x && _currentPoints <= _oneStarsRating.y)
+            {
+                goodStars = 1;
+            }
+            else if (_currentPoints >= _zeroStarsRating.x && _currentPoints <= _zeroStarsRating.y)
+            {
+                goodStars = 0;
+            }
+
+            foreach (var star in _starsPositions)
+            {
+                star.sprite = goodStars > 0 ? _goodStarSprite : _badStarSprite;
+                goodStars--;
+                star.gameObject.SetActive(true);
+            }
+
+            StartCoroutine(nameof(WaitToTurnOffStars));
+        }
+
+        private IEnumerator WaitToTurnOffStars()
+        {
+            yield return new WaitForSeconds(_timeToHideStars);
+            foreach (var star in _starsPositions)
+            {
+                star.gameObject.SetActive(false);
+                star.sprite = null;
+            }
+        }
+
+        public void InteractExit(GameObject interactor)
+        {
+            // noop
+        }
     }
     
     public enum Reason

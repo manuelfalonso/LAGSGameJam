@@ -179,7 +179,7 @@ namespace LAGS.Clients
                     Is2D = true
                 };
 
-                if (!LineOfSight.IsInFieldOfViewAndInSight(data, _fovAngle)) { continue; }
+                if (!LineOfSight.IsInFieldOfViewAndInSight(data, _fovAngle, out var _)) { continue; }
 
                 _table.ReducePoints(_puddleDetectedReducePoints, Reason.PuddleDetected);
                 break;
