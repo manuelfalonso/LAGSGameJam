@@ -196,8 +196,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 1dd0cb91a6d88f641b78160b8eb298ef, type: 3}
-  m_Color: {r: 0, g: 1, b: 0.021962643, a: 1}
+  m_Sprite: {fileID: 21300000, guid: d2753c674725b4a409700f73f2aac8ff, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -286,6 +286,7 @@ MonoBehaviour:
   _fov: {fileID: 1354159815410932599}
   _clientSpeed: 2
   _timeToOrder: 0
+  _eatingTime: 2
   _fovAngle: 120
   _obstacleMask:
     serializedVersion: 2
