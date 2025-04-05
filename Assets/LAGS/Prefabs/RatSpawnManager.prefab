@@ -26,8 +26,8 @@ Transform:
   m_GameObject: {fileID: 4903040967921883093}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.8, y: -2.74, z: 0}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
+  m_LocalPosition: {x: 4.52, y: -1.7, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 484715040447902983}
@@ -72,9 +72,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.21960786, g: 0.21960786, b: 0.21960786, a: 1}
+  m_SortingOrder: -5
+  m_Sprite: {fileID: 21300000, guid: 51abb8a194db44945ba8514d94ec3edb, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -110,8 +110,8 @@ Transform:
   m_GameObject: {fileID: 5198049734505413951}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.18, y: -1.73, z: 0}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
+  m_LocalPosition: {x: -4.68, y: -0.58, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 484715040447902983}
@@ -156,9 +156,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.21960786, g: 0.21960786, b: 0.21960786, a: 1}
+  m_SortingOrder: -5
+  m_Sprite: {fileID: 21300000, guid: d609d19ed71620f41abc3ebfe76faf6c, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -214,9 +214,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00cdb2ca27b31824783faf6580e702e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spanPoints:
-  - {fileID: 7741533424010813010}
-  - {fileID: 3033260298614965253}
-  _onRatDeathEvent: {fileID: 11400000, guid: e3f45afab2894cb4da33b9dd07986ca3, type: 2}
-  _spawnData: {fileID: 11400000, guid: 16d96ecf7f1910d4f82898bcda01436a, type: 2}
-  _spawnAtStart: 1
+  _activeSpawns: []
+  _showLogs: 0

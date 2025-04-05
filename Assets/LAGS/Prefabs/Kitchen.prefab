@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8717611846435174033}
   - component: {fileID: 6466638826404333252}
-  - component: {fileID: 1990785901265578273}
   m_Layer: 0
   m_Name: Kitchen
   m_TagString: Untagged
@@ -48,53 +47,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _visualPlates:
   - {fileID: 580427000831203669}
---- !u!68 &1990785901265578273
-EdgeCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6893395927470725562}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_EdgeRadius: 0
-  m_Points:
-  - {x: -0.6880019, y: 0.5744503}
-  - {x: -1.1815728, y: 0.35511482}
-  - {x: -2.3513625, y: 0.4700048}
-  - {x: -3.3227057, y: -0.13577923}
-  - {x: -3.2913725, y: 0.5953394}
-  - {x: -2.3304737, y: 1.2637907}
-  - {x: -0.68023384, y: 1.3682362}
-  - {x: -0.6671128, y: 0.58489484}
-  m_AdjacentStartPoint: {x: 0, y: 0}
-  m_AdjacentEndPoint: {x: 0, y: 0}
-  m_UseAdjacentStartPoint: 0
-  m_UseAdjacentEndPoint: 0
 --- !u!1 &7904728177426687345
 GameObject:
   m_ObjectHideFlags: 0
