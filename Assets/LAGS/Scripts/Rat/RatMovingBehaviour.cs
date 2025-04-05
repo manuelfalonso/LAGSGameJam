@@ -55,7 +55,7 @@ namespace LAGS
                     ObstaclesMask = _obstacleLayerMask
                 };
 
-                if (SombraStudios.Shared.AI.LineOfSight.IsInSight(isInSightData))
+                if (SombraStudios.Shared.AI.LineOfSight.IsInSight(isInSightData, out var hit))
                 {
                     var movement = direction.normalized * _moveSpeed * Time.deltaTime;
                     animator.transform.position += movement;
