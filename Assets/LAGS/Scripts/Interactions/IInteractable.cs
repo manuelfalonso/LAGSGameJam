@@ -7,5 +7,6 @@ namespace LAGS
     public interface IInteractable
     {
         public void Interact(GameObject interactor);
+        public void InteractExit(GameObject interactor);
     }
 }

@@ -177,6 +177,11 @@ namespace LAGS.Pub
                 client.Escape();
             }
         }
+
+        public void InteractExit(GameObject interactor)
+        {
+            // noop
+        }
     }
     
     public enum Reason

@@ -41,5 +41,10 @@ namespace LAGS
             // Shake the camera
             _cameraShakeController.ShakeCamera(_cameraShakeData);
         }
+
+        public void InteractExit(GameObject interactor)
+        {
+            // noop
+        }
     }
 }

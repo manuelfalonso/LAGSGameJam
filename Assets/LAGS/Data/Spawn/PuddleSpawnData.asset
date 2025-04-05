@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 90657a17b795314439f31cc6bbbfadf7, type: 3}
-  m_Name: RatSpawnData
+  m_Name: PuddleSpawnData
   m_EditorClassIdentifier: 
-  ObjectToSpawn: {fileID: 3245613480046738335, guid: 73bbabe4cf5649f429e089c1fc532651, type: 3}
+  ObjectToSpawn: {fileID: 6793069066678693151, guid: 248ee869936b43a4fb130f7c060ae303, type: 3}
   TimeBetweenSpawns:
-    MinValue: 10
-    MaxValue: 10
+    MinValue: 15
+    MaxValue: 15
   AllowConsecutiveRepeatSpawns: 0
-  MaxSpawns: 3
+  MaxSpawns: 1
   SpawnAtStart: 1
