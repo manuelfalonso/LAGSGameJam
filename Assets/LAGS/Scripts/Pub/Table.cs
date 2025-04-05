@@ -205,24 +205,24 @@ namespace LAGS.Pub
                 client.Escape();
             }
         }
-
+        
         private void CalculateReview()
         {
             var goodStars = 0;
-            
-            if(_currentPoints >= _threeStarsRating.x && _currentPoints <= _threeStarsRating.y)
+
+            if (_currentPoints >= _threeStarsRating.x && _currentPoints <= _threeStarsRating.y)
             {
                 goodStars = 3;
             }
-            else if(_currentPoints >= _twoStarsRating.x && _currentPoints <= _twoStarsRating.y)
+            else if (_currentPoints >= _twoStarsRating.x && _currentPoints <= _twoStarsRating.y)
             {
                 goodStars = 2;
             }
-            else if(_currentPoints >= _oneStarsRating.x && _currentPoints <= _oneStarsRating.y)
+            else if (_currentPoints >= _oneStarsRating.x && _currentPoints <= _oneStarsRating.y)
             {
                 goodStars = 1;
             }
-            else if(_currentPoints >= _zeroStarsRating.x && _currentPoints <= _zeroStarsRating.y)
+            else if (_currentPoints >= _zeroStarsRating.x && _currentPoints <= _zeroStarsRating.y)
             {
                 goodStars = 0;
             }
@@ -245,6 +245,11 @@ namespace LAGS.Pub
                 star.gameObject.SetActive(false);
                 star.sprite = null;
             }
+        }
+
+        public void InteractExit(GameObject interactor)
+        {
+            // noop
         }
     }
     

@@ -21,7 +21,10 @@ namespace LAGS
             // Rats interactions
             if (other.TryGetComponent(out IInteractable interactable))
             {
-                interactable.Interact(gameObject);
+                if (_showLogs)
+                    Debug.Log("Interact enter " + interactable, this);
+
+                interactable.Interact(_interactor);
             }
 
             //Debug.LogError(_isDragging, this);
@@ -49,6 +52,14 @@ namespace LAGS
 
             //    _draggable = null;
             //}
+
+            if (other.TryGetComponent(out IInteractable interactable))
+            {
+                if (_showLogs)
+                    Debug.Log("Interact exit " + interactable, this);
+
+                interactable.InteractExit(_interactor);
+            }
         }
 
         public void Drag()
