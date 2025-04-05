@@ -14,6 +14,8 @@ namespace LAGS
         [SerializeField] private string _moveXParameterName = "MoveX";
         [SerializeField] private string _moveYParameterName = "MoveY";
         [SerializeField] private string _isMovingParameterName = "IsMoving";
+        [SerializeField] private string _onePlateParameterName = "OnePlate";
+        [SerializeField] private string _twoPlateParameterName = "TwoPlates";
 
         // Update is called once per frame
         void Update()
@@ -43,6 +45,28 @@ namespace LAGS
 
             _animator.SetFloat(_moveXParameterName, moveX);
             _animator.SetFloat(_moveYParameterName, moveY);
+        }
+
+        public void SetOnePlate(bool value)
+        {
+            if (_animator == null)
+            {
+                Debug.LogError("Missing reference", this);
+                return;
+            }
+
+            _animator.SetBool(_onePlateParameterName, value);
+        }
+
+        public void SetTwoPlates(bool value)
+        {
+            if (_animator == null)
+            {
+                Debug.LogError("Missing reference", this);
+                return;
+            }
+
+            _animator.SetBool(_twoPlateParameterName, value);
         }
     }
 }
