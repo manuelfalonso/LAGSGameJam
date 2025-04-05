@@ -75,8 +75,6 @@ namespace LAGS
                 0f,
                 LayerMask.GetMask("Obstacle"));
 
-            Debug.LogError(hit.collider, this);
-
             if (hit.collider == null) return;
             if (hit.collider.TryGetComponent(out IDraggable draggable))
             {
@@ -92,14 +90,12 @@ namespace LAGS
                     Debug.Log("Draggable dragged " + _draggable, this);
 
                 _draggable.Drag(_interactor);
-                Debug.LogError(_isDragging, this);
                 _isDragging = true;
             }
         }
 
         public void Drop()
         {
-            Debug.LogError(_isDragging, this);
             if (!_isDragging) return;
 
             if (_draggable != null)
@@ -108,7 +104,6 @@ namespace LAGS
                     Debug.Log("Draggable dropped " + _draggable, this);
 
                 _draggable.Drop(_interactor);
-                Debug.LogError(_isDragging, this);
                 _isDragging = false;
                 _draggable = null;
             }
