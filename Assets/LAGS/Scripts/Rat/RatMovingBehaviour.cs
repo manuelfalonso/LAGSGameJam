@@ -6,7 +6,7 @@ namespace LAGS
 {
     public class RatMovingBehaviour : StateMachineBehaviour
     {
-        private const int _maxTries = 30;
+        //private const int _maxTries = 30;
 
         [Header("Configuration")]
         [SerializeField] private float _movingTime = 10f;

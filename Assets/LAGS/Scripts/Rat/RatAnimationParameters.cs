@@ -2,7 +2,7 @@
 {
     public static class RatAnimationParameters
     {
-        public const string IsKockout = "IsKockout";
+        public const string IsKnockout = "IsKnockout";
         public const string Recover = "Recover";
         public const string IsMoving = "IsMoving";
         public const string MoveX = "MoveX";
