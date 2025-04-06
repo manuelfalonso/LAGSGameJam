@@ -15,8 +15,8 @@ MonoBehaviour:
   ObjectToSpawn:
   - {fileID: 3245613480046738335, guid: a04d08ac2762f2040bfbb6a0ac490e8b, type: 3}
   TimeBetweenSpawns:
-    MinValue: 5
-    MaxValue: 10
+    MinValue: 8
+    MaxValue: 12
   AllowConsecutiveRepeatSpawns: 1
   MaxSpawns: 1
   SpawnAtStart: 1

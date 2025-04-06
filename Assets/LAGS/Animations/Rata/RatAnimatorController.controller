@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: daf010c5ff770494c81de9e55b17b8c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _knockoutTime: 15
+  _knockoutTime: 8
   _despawnChanceIncrease: 0.2
 --- !u!1101 &-7670814723202751193
 AnimatorStateTransition:
