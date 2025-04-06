@@ -64,6 +64,8 @@ namespace LAGS
                 _activeSpawns.Add(spawn);
             }
 
+            if (spawn.IsActive == false) return;
+
             if (spawn.CurrentSpawns < spawn.SpawnData.MaxSpawns)
             {
                 Instantiate(
@@ -96,6 +98,7 @@ namespace LAGS
         public class ActiveSpawn
         {
             [Header("Spawn Settings")]
+            public bool IsActive = true;
             public SpawnData SpawnData;
             public List<Transform> SpawnPoints = new();
             [Header("Debug")]

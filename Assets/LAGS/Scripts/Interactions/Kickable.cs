@@ -10,6 +10,7 @@ namespace LAGS
         [SerializeField] private Rigidbody2D _rigidbody2D;
         [SerializeField] private CameraShakeController _cameraShakeController;
         [SerializeField] private CameraShakeDataSO _cameraShakeData;
+        [SerializeField] private Animator _animator;
 
         [Header("Configuration")]
         [SerializeField] private float _kickForce = 10f;
@@ -22,6 +23,7 @@ namespace LAGS
         {
             this.SafeInit(ref _rigidbody2D);
             this.SafeInit(ref _cameraShakeController);
+            this.SafeInit(ref _animator);
         }
 
         public void Interact(GameObject interactor)
@@ -40,6 +42,16 @@ namespace LAGS
 
             // Shake the camera
             _cameraShakeController.ShakeCamera(_cameraShakeData);
+
+            // Set the Animation Parameter
+            if (_animator != null)
+            {
+                _animator.SetTrigger(RatAnimationParameters.IsKockout);
+            }
+            else
+            {
+                Debug.LogWarning("No Animator assigned to Kickable", this);
+            }
         }
 
         public void InteractExit(GameObject interactor)

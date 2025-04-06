@@ -6,7 +6,6 @@ namespace LAGS
     public class RatKnockoutBehaviour : StateMachineBehaviour
     {
         private const float INITIAL_DESPAWN_CHANCE = 0.2f;
-        private const string RECOVER_TRIGGER = "Recover";
 
         [Header("Configuration")]
         [SerializeField] private float _knockoutTime = 15f;
@@ -55,7 +54,7 @@ namespace LAGS
             else
             {
                 _currentDespawnChance += _despawnChanceIncrease;
-                _animator.SetTrigger(RECOVER_TRIGGER);
+                _animator.SetTrigger(RatAnimationParameters.Recover);
             }
         }
     }
