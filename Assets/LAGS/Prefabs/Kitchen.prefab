@@ -201,6 +201,7 @@ Transform:
   - {fileID: 7727793898812759228}
   - {fileID: 8504939733782212688}
   - {fileID: 91118665326909323}
+  - {fileID: 808655975421761691}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6466638826404333252
@@ -303,3 +304,57 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &3953085321905783520
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 8717611846435174033}
+    m_Modifications:
+    - target: {fileID: 4459903337353157243, guid: 3a15bb0990391fe41a67924a9a65f201, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4459903337353157243, guid: 3a15bb0990391fe41a67924a9a65f201, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4459903337353157243, guid: 3a15bb0990391fe41a67924a9a65f201, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4459903337353157243, guid: 3a15bb0990391fe41a67924a9a65f201, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4459903337353157243, guid: 3a15bb0990391fe41a67924a9a65f201, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4459903337353157243, guid: 3a15bb0990391fe41a67924a9a65f201, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4459903337353157243, guid: 3a15bb0990391fe41a67924a9a65f201, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4459903337353157243, guid: 3a15bb0990391fe41a67924a9a65f201, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4507463742864032651, guid: 3a15bb0990391fe41a67924a9a65f201, type: 3}
+      propertyPath: m_Name
+      value: Cheff
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3a15bb0990391fe41a67924a9a65f201, type: 3}
+--- !u!4 &808655975421761691 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4459903337353157243, guid: 3a15bb0990391fe41a67924a9a65f201, type: 3}
+  m_PrefabInstance: {fileID: 3953085321905783520}
+  m_PrefabAsset: {fileID: 0}

@@ -8,6 +8,10 @@ namespace LAGS
 {
     public class Cheff : MonoBehaviour
     {
+        private static readonly int AboutSneeze = Animator.StringToHash("AboutSneeze");
+        private static readonly int Sneeze = Animator.StringToHash("Sneeze");
+        
+        [SerializeField] private Animator _animator;
         [MinMaxSlider(2,5), SerializeField] private Vector2 _timeToSneeze;
         [SerializeField] private float _previousSneezeTime;
         [SerializeField] private float _sneezeTime;
@@ -28,20 +32,24 @@ namespace LAGS
             }
             else
             {
-                Sneeze();
+                StartCoroutine(nameof(CallAboutSneeze));
                 GetRandomTime();
             }
         }
 
-        private void Sneeze()
+        private IEnumerator CallAboutSneeze()
         {
+            _animator.SetTrigger(AboutSneeze);
+            yield return new WaitForSeconds(_previousSneezeTime);
             StartCoroutine(nameof(SneezeDuration));
         }
 
         private IEnumerator SneezeDuration()
         {
             _justSneeze = true;
+            _animator.SetBool(Sneeze, true);
             yield return new WaitForSeconds(_sneezeTime);
+            _animator.SetBool(Sneeze, false);
             _justSneeze = false;
         }
         
