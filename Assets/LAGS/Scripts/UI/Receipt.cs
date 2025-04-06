@@ -59,7 +59,7 @@ namespace LAGS
             _rectTransform.DOMoveY(0f,_duration).SetEase(_ease);
         }
         
-        private void ChangeScene()
+        public void ChangeScene()
         {
             if (_daySuccess)
             {

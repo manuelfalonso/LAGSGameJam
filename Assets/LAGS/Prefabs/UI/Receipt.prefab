@@ -801,10 +801,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000, guid: e4dffd2ed81d97e43865c82ebd418d75, type: 2}
-        m_TargetAssemblyTypeName: SombraStudios.Shared.ScriptableObjects.Patterns.Behavioural.Strategy.StrategySO,
-          SombraStudios.Shared.ScriptableObjects
-        m_MethodName: TryExecute
+      - m_Target: {fileID: 662407124311067829}
+        m_TargetAssemblyTypeName: LAGS.Receipt, LAGS
+        m_MethodName: ChangeScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
