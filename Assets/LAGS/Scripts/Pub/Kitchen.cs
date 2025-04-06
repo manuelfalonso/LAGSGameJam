@@ -42,7 +42,7 @@ namespace LAGS
                 
                 if (plate.Status != OrderStatus.Ready) { continue; }
                 
-                var visualPlate = _visualPlates.First(visualPlate => !visualPlate.gameObject.activeInHierarchy);
+                var visualPlate = _visualPlates.FirstOrDefault(visualPlate => !visualPlate.gameObject.activeInHierarchy);
 
                 if(!visualPlate) { return; }
                 

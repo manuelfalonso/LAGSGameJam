@@ -30,6 +30,8 @@ namespace LAGS
 
         private IEnumerator SpawnCoroutine(SpawnData spawnData)
         {
+            yield return new WaitForSeconds(spawnData.TimeBetweenSpawns.RandomValue);
+            
             while (true)
             {
                 Spawn(spawnData);
