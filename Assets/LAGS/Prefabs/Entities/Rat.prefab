@@ -123,9 +123,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.11610031, y: -0.26196995}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.13383743
 --- !u!50 &961762889791758913
 Rigidbody2D:
   serializedVersion: 4
@@ -152,7 +152,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!95 &6317620306988958485
 Animator:
   serializedVersion: 5
@@ -184,7 +184,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 2
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -211,7 +211,7 @@ MonoBehaviour:
   _rigidbody2D: {fileID: 961762889791758913}
   _cameraShakeController: {fileID: 8414319607891952261}
   _cameraShakeData: {fileID: 11400000, guid: 0c9df40555a55c34ba189a9ee679549a, type: 2}
-  _kickForce: 4
+  _kickForce: 30
   _forceMode: 1
   _showLogs: 0
 --- !u!114 &8414319607891952261
