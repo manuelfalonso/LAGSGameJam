@@ -21,7 +21,10 @@ namespace LAGS
             // Rats interactions
             if (other.TryGetComponent(out IInteractable interactable))
             {
-                interactable.Interact(gameObject);
+                if (_showLogs)
+                    Debug.Log("Interact enter " + interactable, this);
+
+                interactable.Interact(_interactor);
             }
 
             //Debug.LogError(_isDragging, this);
@@ -49,6 +52,14 @@ namespace LAGS
 
             //    _draggable = null;
             //}
+
+            if (other.TryGetComponent(out IInteractable interactable))
+            {
+                if (_showLogs)
+                    Debug.Log("Interact exit " + interactable, this);
+
+                interactable.InteractExit(_interactor);
+            }
         }
 
         public void Drag()
@@ -63,8 +74,6 @@ namespace LAGS
                 Vector2.zero, 
                 0f,
                 LayerMask.GetMask("Obstacle"));
-
-            Debug.LogError(hit.collider, this);
 
             if (hit.collider == null) return;
             if (hit.collider.TryGetComponent(out IDraggable draggable))
@@ -81,14 +90,12 @@ namespace LAGS
                     Debug.Log("Draggable dragged " + _draggable, this);
 
                 _draggable.Drag(_interactor);
-                Debug.LogError(_isDragging, this);
                 _isDragging = true;
             }
         }
 
         public void Drop()
         {
-            Debug.LogError(_isDragging, this);
             if (!_isDragging) return;
 
             if (_draggable != null)
@@ -97,7 +104,6 @@ namespace LAGS
                     Debug.Log("Draggable dropped " + _draggable, this);
 
                 _draggable.Drop(_interactor);
-                Debug.LogError(_isDragging, this);
                 _isDragging = false;
                 _draggable = null;
             }

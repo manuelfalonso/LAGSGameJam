@@ -12,7 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90657a17b795314439f31cc6bbbfadf7, type: 3}
   m_Name: RatSpawnData
   m_EditorClassIdentifier: 
-  ObjectToSpawn: {fileID: 3245613480046738335, guid: 73bbabe4cf5649f429e089c1fc532651, type: 3}
-  TimeBetweenSpawns: 10
+  ObjectToSpawn:
+  - {fileID: 3245613480046738335, guid: a04d08ac2762f2040bfbb6a0ac490e8b, type: 3}
+  TimeBetweenSpawns:
+    MinValue: 10
+    MaxValue: 10
   AllowConsecutiveRepeatSpawns: 0
   MaxSpawns: 3
+  SpawnAtStart: 1

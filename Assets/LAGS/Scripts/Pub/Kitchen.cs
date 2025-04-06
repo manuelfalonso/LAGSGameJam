@@ -97,5 +97,10 @@ namespace LAGS
                 if (player.HasBothHandsOccupied()) break;
             }
         }
+
+        public void InteractExit(GameObject interactor)
+        {
+            // noop
+        }
     }
 }

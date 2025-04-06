@@ -1,4 +1,3 @@
-using SombraStudios.Shared.Patterns.Behavioural.Observer.ScriptableObjects;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,68 +6,101 @@ namespace LAGS
 {
     public class SpawnManager : MonoBehaviour
     {
-        [Header("References")]
-        [SerializeField] private List<Transform> _spanPoints = new();
-        [SerializeField] private VoidEventChannelSO _onRatDeathEvent;
-
         [Header("Settings")]
-        [SerializeField] private SpawnData _spawnData;
+        [SerializeField] private List<ActiveSpawn> _activeSpawns = new();
 
         [Header("Debug")]
-        [SerializeField] private bool _spawnAtStart = true;
-
-        private Transform _previousSpawnPoint;
-        private int _currentSpawns;
-
-        private void OnEnable()
-        {
-            _onRatDeathEvent.OnEventRaised -= DecreaseSapwn;
-            _onRatDeathEvent.OnEventRaised += DecreaseSapwn;
-        }
-
-        private void OnDisable()
-        {
-            _onRatDeathEvent.OnEventRaised -= DecreaseSapwn;
-        }
+        [SerializeField] private bool _showLogs;
 
         private void Start()
         {
-            if (_spawnAtStart)
+            StartSpawning();
+        }
+
+        private void StartSpawning()
+        {
+            foreach (var spawn in _activeSpawns)
             {
-                InvokeRepeating(nameof(Spawn), 0f, _spawnData.TimeBetweenSpawns);
+                if (spawn.SpawnData.SpawnAtStart)
+                {
+                    StartCoroutine(SpawnCoroutine(spawn.SpawnData));
+                }
             }
         }
 
-        private void DecreaseSapwn()
+        private IEnumerator SpawnCoroutine(SpawnData spawnData)
         {
-            _currentSpawns--;
-        }
-
-        private void Spawn()
-        {
-            if (_currentSpawns < _spawnData.MaxSpawns)
+            while (true)
             {
-                Instantiate(_spawnData.ObjectToSpawn, GetRandomSpawnPoint().position, Quaternion.identity);
-                _currentSpawns++;
+                Spawn(spawnData);
+                yield return new WaitForSeconds(spawnData.TimeBetweenSpawns.RandomValue);
             }
         }
 
-        private Transform GetRandomSpawnPoint()
+        public void DecreaseSapwn(SpawnData spawnToDecrease)
         {
-            if (_spawnData.AllowConsecutiveRepeatSpawns)
+            var spawn = _activeSpawns.Find(x => x.SpawnData == spawnToDecrease);
+
+            if (spawn == null)
             {
-                return _spanPoints[Random.Range(0, _spanPoints.Count)];
+                Debug.LogWarning("Spawn not found in active spawns list.", this);
+                return;
+            }
+            
+            spawn.CurrentSpawns--;
+        }
+
+        public void Spawn(SpawnData spawnToIncrease)
+        {
+            var spawn = _activeSpawns.Find(x => x.SpawnData == spawnToIncrease);
+
+            if (spawn == null)
+            {
+                spawn = new ActiveSpawn
+                {
+                    SpawnData = spawnToIncrease,
+                    CurrentSpawns = 0
+                };
+                _activeSpawns.Add(spawn);
+            }
+
+            if (spawn.CurrentSpawns < spawn.SpawnData.MaxSpawns)
+            {
+                Instantiate(
+                    spawn.SpawnData.ObjectToSpawn[Random.Range(0, spawn.SpawnData.ObjectToSpawn.Length - 1)], 
+                    GetRandomSpawnPoint(spawn).position, 
+                    Quaternion.identity);
+                spawn.CurrentSpawns++;
+            }
+        }
+
+        private Transform GetRandomSpawnPoint(ActiveSpawn spawn)
+        {
+            if (spawn.SpawnData.AllowConsecutiveRepeatSpawns)
+            {
+                return spawn.SpawnPoints[Random.Range(0, spawn.SpawnPoints.Count)];
             }
             else
             {
-                Transform spawnPoint = _spanPoints[Random.Range(0, _spanPoints.Count)];
-                while (spawnPoint == _previousSpawnPoint)
+                Transform spawnPoint = spawn.SpawnPoints[Random.Range(0, spawn.SpawnPoints.Count)];                
+                while (spawnPoint == spawn.PreviousSpawnPoint)
                 {
-                    spawnPoint = _spanPoints[Random.Range(0, _spanPoints.Count)];
+                    spawnPoint = spawn.SpawnPoints[Random.Range(0, spawn.SpawnPoints.Count)];
                 }
-                _previousSpawnPoint = spawnPoint;
+                spawn.PreviousSpawnPoint = spawnPoint;
                 return spawnPoint;
             }
+        }
+
+        [System.Serializable]
+        public class ActiveSpawn
+        {
+            [Header("Spawn Settings")]
+            public SpawnData SpawnData;
+            public List<Transform> SpawnPoints = new();
+            [Header("Debug")]
+            public Transform PreviousSpawnPoint;
+            public int CurrentSpawns;
         }
     }
 }
