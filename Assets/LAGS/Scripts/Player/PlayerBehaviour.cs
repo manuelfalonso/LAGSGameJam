@@ -3,6 +3,7 @@ using UnityEngine;
 
 namespace LAGS
 {
+    [SelectionBase]
     public class PlayerBehaviour : MonoBehaviour
     {
         [Header("References")]
