@@ -304,7 +304,7 @@ GameObject:
   - component: {fileID: 4655757559431447152}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -660,6 +660,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  NewOrder:
+    m_PersistentCalls:
+      m_Calls: []
+  OrderInKitchen:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &978409069383123099
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -707,6 +713,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spriteRenderer: {fileID: 8952206974267236798}
+  _sortingOrderOffset: 0
 --- !u!1 &7549187006124386923
 GameObject:
   m_ObjectHideFlags: 0

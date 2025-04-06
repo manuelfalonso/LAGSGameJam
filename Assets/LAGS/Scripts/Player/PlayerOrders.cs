@@ -20,16 +20,19 @@ namespace LAGS.Player
         
         public UnityEvent<bool> OnePlateSet;
         public UnityEvent<bool> TwoPlateSet;
+        public UnityEvent<Order> NewOrder;
+        public UnityEvent<Order> OrderInKitchen;
         
         public void AddOrder(Order order)
         {
-            Debug.Log("Adding order");
+            NewOrder?.Invoke(order);
             _orders.Add(order);
         }
         
         public void RemoveOrder(Order order)
         {
             _orders.Remove(order);
+            OrderInKitchen?.Invoke(order);
         }
 
         public void SetPlates(Plate plate, bool leftPlate)

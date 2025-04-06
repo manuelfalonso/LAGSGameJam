@@ -12,8 +12,8 @@ namespace LAGS
         [Header("References")]
         [SerializeField] private Image _fillProgressUI;
 
-        [Header("Settings")]
-        [SerializeField] private Gradient _progressColor;
+        //[Header("Settings")]
+        //[SerializeField] private Gradient _progressColor;
 
         [Header("Events")]
         public UnityEvent DayProgressFinished = new();
@@ -32,7 +32,7 @@ namespace LAGS
 
             _progress += Time.deltaTime / GameManager.Instance.Data.DayDurationInSeconds;
             _fillProgressUI.fillAmount = Mathf.Clamp01(_progress);
-            _fillProgressUI.color = _progressColor.Evaluate(_progress);
+            //_fillProgressUI.color = _progressColor.Evaluate(_progress);
 
             if (_progress >= 1f)
             {
@@ -59,7 +59,7 @@ namespace LAGS
                 Debug.LogError("Fill Progress UI is not set in DayProgressionUI", this);
                 return;
             }
-
+            
             _fillProgressUI.fillAmount = 0f;
             _inProgress = false;
         }

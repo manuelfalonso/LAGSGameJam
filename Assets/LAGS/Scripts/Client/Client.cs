@@ -139,6 +139,7 @@ namespace LAGS.Clients
             {
                 if (_isEscaping)
                 {
+                    PubManager.Instance.RemoveClient(this);
                     Destroy(gameObject);
                     return;
                 }

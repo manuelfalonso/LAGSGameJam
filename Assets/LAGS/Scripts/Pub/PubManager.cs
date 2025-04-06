@@ -21,6 +21,8 @@ namespace LAGS.Managers.Pub
         private float _currentTime;
         private bool _isDayOver;
         private bool _isDoorClosed;
+        public float DayDuration => _dayDuration;
+        public float CurrentTime => _currentTime;
         
         [Header("Clients")]
         [SerializeField] private GameObject _clientPrefab;
@@ -126,10 +128,14 @@ namespace LAGS.Managers.Pub
             }
         }
         
-        private void RemoveClient(Client client)
+        public void RemoveClient(Client client)
         {
             _clients.Remove(client);
-            Destroy(client);
+
+            if (_isDayOver && _clients.Count == 0)
+            {
+                //TODO: Add day end logic
+            }
         }
 
         #endregion
