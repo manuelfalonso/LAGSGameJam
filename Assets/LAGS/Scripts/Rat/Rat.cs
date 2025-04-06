@@ -1,14 +1,28 @@
+using SombraStudios.Shared.Extensions;
 using SombraStudios.Shared.Patterns.Behavioural.Observer.ScriptableObjects;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace LAGS
 {
     public class Rat : MonoBehaviour
     {
         [Header("References")]
+        [SerializeField] private NavMeshAgent _agent;
+
+        [Header("Events")]
         [SerializeField] private VoidEventChannelSO _onRatDeathEvent;
+
+        private void Awake()
+        {
+            this.SafeInit(ref _agent);
+        }
+
+        private void Start()
+        {
+            _agent.updateRotation = false;
+            _agent.updateUpAxis = false;
+        }
 
         private void OnDestroy()
         {
