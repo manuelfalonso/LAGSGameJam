@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using LAGS.Player;
 using LAGS.Pub;
 using UnityEngine;
 
@@ -50,9 +51,7 @@ namespace LAGS
 
         public void Interact(GameObject interactor)
         {
-            if (!interactor.TryGetComponent(out Interact interact)) { return; }
-
-            var player = interact.PlayerOrders;
+            if (!interactor.TryGetComponent(out PlayerOrders player)) { return; }
 
             while (player.Orders.Count > 0)
             {
