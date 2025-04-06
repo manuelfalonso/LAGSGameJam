@@ -315,6 +315,7 @@ namespace LAGS.Clients
             if (!LineOfSight.IsInFieldOfViewAndInSight(_data, _fovAngle, out var hits))
             {
                 _isAlert = false;
+                _headAnimator.SetBool("IsMoving", false);
                 return;
             }
             
