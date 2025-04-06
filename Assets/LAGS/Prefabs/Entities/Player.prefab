@@ -713,7 +713,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spriteRenderer: {fileID: 8952206974267236798}
-  _sortingOrderOffset: 0
+  _sortingOrderOffset: 1000
 --- !u!1 &7549187006124386923
 GameObject:
   m_ObjectHideFlags: 0
