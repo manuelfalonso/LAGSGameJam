@@ -19,4 +19,4 @@ MonoBehaviour:
     MaxValue: 10
   AllowConsecutiveRepeatSpawns: 0
   MaxSpawns: 3
-  SpawnAtStart: 0
+  SpawnAtStart: 1
