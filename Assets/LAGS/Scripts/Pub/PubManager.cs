@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using LAGS.Clients;
@@ -116,7 +117,7 @@ namespace LAGS.Managers.Pub
             if (_currentTimeToNewClient <= 0)
             {
                 _currentTimeToNewClient = Random.Range(_minTimeToNewClient, _maxTimeToNewClient);
-                GenerateNewClient();
+                StartCoroutine(nameof(GenerateNewClient));
             }
             else
             {
@@ -124,14 +125,14 @@ namespace LAGS.Managers.Pub
             }
         }
 
-        private void GenerateNewClient()
+        private IEnumerator GenerateNewClient()
         {
             var tables = GetFreeTables();
             var maxClients = tables.Select(table => table.GetTotalSpaces()).Prepend(0).Max();
             var totalClients = Random.Range(1, maxClients + 1);
             var table = GetRandomTable(totalClients);
             
-            if(table is null) { return; }
+            if(table is null) { yield break; }
             
             for (var i = 0; i < totalClients; i++)
             {
@@ -140,6 +141,7 @@ namespace LAGS.Managers.Pub
                     .GetComponent<Client>();
                 _clients.Add(client);
                 client.AssignTable(table);
+                yield return new WaitForSeconds(1);
             }
 
             audioSource.Play();
