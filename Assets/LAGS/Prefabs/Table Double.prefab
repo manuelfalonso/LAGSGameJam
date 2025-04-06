@@ -250,11 +250,11 @@ MonoBehaviour:
   _pointsToReduce: 10
   _threeStarsRating: {x: 80, y: 100}
   _twoStarsRating: {x: 31, y: 79}
-  _oneStarsRating: {x: 1, y: 31}
+  _oneStarsRating: {x: 1, y: 30}
   _zeroStarsRating: {x: 0, y: 0}
-  _addedTimeToWait: 15
+  _addedTimeToWait: 5
   _reducePointsForPlateDelayed: 5
-  _extraReducePoints: 1
+  _extraReducePoints: 2
   _container: {fileID: 5877378082364038636}
   _starsPositions:
   - {fileID: 843718576457605564}

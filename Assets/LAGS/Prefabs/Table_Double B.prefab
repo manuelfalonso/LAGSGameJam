@@ -153,9 +153,9 @@ MonoBehaviour:
   _twoStarsRating: {x: 31, y: 79}
   _oneStarsRating: {x: 1, y: 30}
   _zeroStarsRating: {x: 0, y: 0}
-  _addedTimeToWait: 15
+  _addedTimeToWait: 5
   _reducePointsForPlateDelayed: 5
-  _extraReducePoints: 1
+  _extraReducePoints: 2
   _container: {fileID: 6678508566208638451}
   _starsPositions:
   - {fileID: 3453930941240588093}
