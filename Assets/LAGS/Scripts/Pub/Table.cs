@@ -3,6 +3,7 @@ using NaughtyAttributes;
 using System.Collections.Generic;
 using System.Linq;
 using LAGS.Clients;
+using LAGS.Managers.Pub;
 using LAGS.Player;
 using UnityEngine;
 
@@ -250,6 +251,7 @@ namespace LAGS.Pub
                 goodStars--;
             }
             
+            PubManager.Instance.AddScore(_currentPoints);
             _container.SetActive(true);
             StartCoroutine(nameof(WaitToTurnOffStars));
         }
