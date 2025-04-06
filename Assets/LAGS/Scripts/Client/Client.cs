@@ -155,10 +155,10 @@ namespace LAGS.Clients
                 
                 transform.position = _chair.transform.position;
                 _agent.isStopped = true;
-                _isSitting = true;
                 _animator.SetBool("IsSitting", true);
                 _headAnimator.SetBool("IsSitting", true);
                 SelectDirection();
+                _isSitting = true;
                 _agent.enabled = false;
                 _fov.enabled = true;
             }
@@ -179,6 +179,8 @@ namespace LAGS.Clients
 
         private void SelectDirection()
         {
+            if (_isSitting) { return; }
+
             switch (_chair.Direction)
             {
                 default:
@@ -247,7 +249,8 @@ namespace LAGS.Clients
             {
                 var data = new LineOfSight.IsInSightData
                 {
-                    StartPoint = _head,
+                    //StartPoint = _head,
+                    StartPoint = _fov.transform,
                     EndPoint = rat,
                     ObstaclesMask = _obstacleMask,
                     Is2D = true
@@ -276,7 +279,8 @@ namespace LAGS.Clients
             {
                 var data = new LineOfSight.IsInSightData
                 {
-                    StartPoint = _head,
+                    //StartPoint = _head,
+                    StartPoint = _fov.transform,
                     EndPoint = puddle,
                     ObstaclesMask = _obstacleMask,
                     Is2D = true
@@ -295,7 +299,8 @@ namespace LAGS.Clients
 
             var data = new LineOfSight.IsInSightData
             {
-                StartPoint = _head,
+                //StartPoint = _head,
+                StartPoint = _fov.transform,
                 EndPoint = _cheff.transform,
                 ObstaclesMask = _obstacleMask,
                 Is2D = true
