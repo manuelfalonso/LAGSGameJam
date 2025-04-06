@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4513587523199823357}
   - component: {fileID: 8319047465437346413}
   - component: {fileID: 3556310794215491136}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Spot Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 1889161967347950756}
   - component: {fileID: 33565087380741239}
   - component: {fileID: 6257090751001055764}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ph_Client
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -342,7 +342,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1927469931193864266}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
