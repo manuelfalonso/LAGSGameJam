@@ -42,7 +42,8 @@ namespace LAGS
 
         private IEnumerator CallAboutSneeze()
         {
-            _animator.SetTrigger(AboutSneeze);
+            _animator.SetBool(AboutSneeze, true);
+            _sneezePreview.SetActive(true);
             yield return new WaitForSeconds(_previousSneezeTime);
             StartCoroutine(nameof(SneezeDuration));
         }
@@ -51,9 +52,9 @@ namespace LAGS
         {
             _justSneeze = true;
             _animator.SetBool(Sneeze, true);
-            _sneezePreview.SetActive(true);
-            yield return new WaitForSeconds(_sneezeTime);
+            _animator.SetBool(AboutSneeze, false);
             _sneezePreview.SetActive(false);
+            yield return new WaitForSeconds(_sneezeTime);
             _animator.SetBool(Sneeze, false);
             _justSneeze = false;
             audioSource.Play();
