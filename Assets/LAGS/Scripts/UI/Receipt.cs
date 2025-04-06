@@ -25,6 +25,7 @@ namespace LAGS
         [Header("UI Config")] 
         [SerializeField] private Sprite _nextSprite;
         [SerializeField] private Sprite _retrySprite;
+        [SerializeField] private Image _buttonSprite;
         
         private RectTransform _rectTransform;
         private bool _daySuccess;
@@ -52,7 +53,7 @@ namespace LAGS
             _daySuccess = pub.CurrentScore >= pub.MinScoreToWin;
             _resultTxt.text = _daySuccess ? DAY_SUCCESS : DAY_FAILED;
             
-            _nextButton.image.sprite = _daySuccess ? _nextSprite : _retrySprite;
+            _buttonSprite.sprite = _daySuccess ? _nextSprite : _retrySprite;
             
             _rectTransform.DOMoveY(0f,_duration).SetEase(_ease);
         }
