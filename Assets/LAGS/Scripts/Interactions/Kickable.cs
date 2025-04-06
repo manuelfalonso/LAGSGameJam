@@ -46,7 +46,7 @@ namespace LAGS
             // Set the Animation Parameter
             if (_animator != null)
             {
-                _animator.SetTrigger(RatAnimationParameters.IsKockout);
+                _animator.SetTrigger(RatAnimationParameters.IsKnockout);
             }
             else
             {
