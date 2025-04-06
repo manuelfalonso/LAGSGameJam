@@ -114,4 +114,11 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 0
+    functionName: SetAnimationPlateData
+    data: 
+    objectReferenceParameter: {fileID: 11400000, guid: e9c5f637ba518fc43b9186306999aec8, type: 2}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0

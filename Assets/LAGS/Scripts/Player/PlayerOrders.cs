@@ -93,5 +93,21 @@ namespace LAGS.Player
                 return RightPlate is not null;
             }
         }
+
+        // Called from Animation Event
+        public void SetAnimationPlateData(AnimationEvent animationEvent)
+        {
+            if (animationEvent.objectReferenceParameter is PlateAnimationData plateAnimationData)
+            {
+                _leftPlate.transform.localPosition = plateAnimationData.LeftLocalPosition;
+                _rightPlate.transform.localPosition = plateAnimationData.RightLocalPosition;
+                _leftPlate.sortingOrder = plateAnimationData.LeftSpriteOrder;
+                _rightPlate.sortingOrder = plateAnimationData.RightSpriteOrder;
+            }
+            else
+            {
+                Debug.LogError("Missing Plate Animation Data", this);
+            }
+        }
     }
 }
