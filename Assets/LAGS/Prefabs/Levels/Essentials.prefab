@@ -580,7 +580,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4520977095968695895, guid: c00c79d73e07d3046b510e3279a83939, type: 3}
       propertyPath: _plates.Array.size
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4520977095968695895, guid: c00c79d73e07d3046b510e3279a83939, type: 3}
       propertyPath: _tables.Array.size
@@ -604,11 +604,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4520977095968695895, guid: c00c79d73e07d3046b510e3279a83939, type: 3}
       propertyPath: _plates.Array.data[1].Name
-      value: Empanada
+      value: Carne con Papas
       objectReference: {fileID: 0}
     - target: {fileID: 4520977095968695895, guid: c00c79d73e07d3046b510e3279a83939, type: 3}
       propertyPath: _plates.Array.data[2].Name
-      value: Soda
+      value: Fideos
       objectReference: {fileID: 0}
     - target: {fileID: 4520977095968695895, guid: c00c79d73e07d3046b510e3279a83939, type: 3}
       propertyPath: _plates.Array.data[0].PlateSprite
@@ -617,22 +617,22 @@ PrefabInstance:
     - target: {fileID: 4520977095968695895, guid: c00c79d73e07d3046b510e3279a83939, type: 3}
       propertyPath: _plates.Array.data[1].PlateSprite
       value: 
-      objectReference: {fileID: 21300000, guid: 60fdf12fa24869e4592fbda03dee6602, type: 3}
+      objectReference: {fileID: 21300000, guid: cb756d76163fa5946b9a6dc5f47ab168, type: 3}
     - target: {fileID: 4520977095968695895, guid: c00c79d73e07d3046b510e3279a83939, type: 3}
       propertyPath: _plates.Array.data[2].PlateSprite
       value: 
-      objectReference: {fileID: 21300000, guid: d9db4633f57f9f44cab70240e5f1c186, type: 3}
+      objectReference: {fileID: 21300000, guid: db91ca04eaead5b4ca9b6e1459e0f379, type: 3}
     - target: {fileID: 4520977095968695895, guid: c00c79d73e07d3046b510e3279a83939, type: 3}
       propertyPath: _plates.Array.data[0].TimeToPrepare
-      value: 3
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4520977095968695895, guid: c00c79d73e07d3046b510e3279a83939, type: 3}
       propertyPath: _plates.Array.data[1].TimeToPrepare
-      value: 3
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4520977095968695895, guid: c00c79d73e07d3046b510e3279a83939, type: 3}
       propertyPath: _plates.Array.data[2].TimeToPrepare
-      value: 3
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
