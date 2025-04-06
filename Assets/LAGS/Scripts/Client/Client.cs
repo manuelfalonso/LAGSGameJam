@@ -310,13 +310,32 @@ namespace LAGS.Clients
         
         private void ClientAlert()
         {
-            if(!_isAlert || _pointsReduced) { return; }
+            if (!_isAlert || _pointsReduced || _rats.Count == 0)
+            {
+                _isAlert = false;
+                _headAnimator.SetBool("IsMoving", false);
+                SelectDirection();
+                return;    
+            }
 
-            if (!LineOfSight.IsInFieldOfViewAndInSight(_data, _fovAngle, out var hits))
+            if (!LineOfSight.IsInFieldOfViewAndInSight(_data, _fovAngle, out var hit))
             {
                 _isAlert = false;
                 _headAnimator.SetBool("IsMoving", false);
                 return;
+            }
+            
+            if(hit.collider)
+            {
+                if(hit.collider.TryGetComponent(out Table table))
+                {
+                    if (table == _table)
+                    {
+                        _isAlert = false;
+                        _headAnimator.SetBool("IsMoving", false);
+                        return;                        
+                    } 
+                }
             }
             
             var direction = _data.EndPoint.position - _head.transform.position;
