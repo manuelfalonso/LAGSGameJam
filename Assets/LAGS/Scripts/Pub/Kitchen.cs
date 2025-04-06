@@ -9,11 +9,14 @@ namespace LAGS
     public class Kitchen : MonoBehaviour, IInteractable
     {
         [SerializeField] private List<SpriteRenderer> _visualPlates;
+        [SerializeField] private AudioClip _dishesSFX;
+        [SerializeField] private AudioClip _scribbleSFX;
         private List<Plate> _visualQueue = new();
         private List<Plate> _plates = new();
         private List<Plate> _readyPlates = new();
 
         private AudioSource audioSource;
+        
 
         private void AddOrders(Order order)
         {
@@ -65,7 +68,7 @@ namespace LAGS
                 visualPlate.gameObject.SetActive(true);
                 visualPlate.sprite = plate.PlateSprite;
 
-                audioSource.Play();
+                audioSource.PlayOneShot(_dishesSFX);
             }
         }
 
@@ -75,6 +78,9 @@ namespace LAGS
 
             while (player.Orders.Count > 0)
             {
+                if (player.Orders.Count == 1)
+                    audioSource.PlayOneShot(_scribbleSFX);
+
                 var order = player.Orders[0];
                 Debug.Log("Adding order to kitchen");
                 AddOrders(order);
