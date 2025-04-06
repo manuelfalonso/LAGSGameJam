@@ -12,16 +12,19 @@ namespace LAGS
         private static readonly int Sneeze = Animator.StringToHash("Sneeze");
         
         [SerializeField] private Animator _animator;
-        [MinMaxSlider(2,5), SerializeField] private Vector2 _timeToSneeze;
+        [SerializeField] private GameObject _sneezePreview;
+        [MinMaxSlider(0,60), SerializeField] private Vector2 _timeToSneeze;
         [SerializeField] private float _previousSneezeTime;
         [SerializeField] private float _sneezeTime;
         private float _currentTimeToSneeze;
         private bool _justSneeze;
+        private AudioSource audioSource;
         public bool JustSneeze => _justSneeze;
         
         private void Start()
         {
             GetRandomTime();
+            audioSource = GetComponent<AudioSource>();
         }
 
         private void Update()
@@ -48,9 +51,12 @@ namespace LAGS
         {
             _justSneeze = true;
             _animator.SetBool(Sneeze, true);
+            _sneezePreview.SetActive(true);
             yield return new WaitForSeconds(_sneezeTime);
+            _sneezePreview.SetActive(false);
             _animator.SetBool(Sneeze, false);
             _justSneeze = false;
+            audioSource.Play();
         }
         
         private void GetRandomTime()
