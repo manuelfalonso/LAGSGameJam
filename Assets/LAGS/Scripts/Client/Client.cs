@@ -41,6 +41,8 @@ namespace LAGS.Clients
         private bool _isEscaping;
         private bool _isSitting;
         private bool _pointsReduced;
+        private bool _isFinishedEating;
+        public bool IsFinishedEating => _isFinishedEating;
         private List<Transform> _rats = new();
         private List<Transform> _puddles = new();
         private LineOfSight.IsInSightData _data;
@@ -250,7 +252,6 @@ namespace LAGS.Clients
 
         public void Escape()
         {
-            _table.LeaveTable(this);
             _chair.Leave();
             _isSitting = false;
             _agent.enabled = true;  
@@ -262,7 +263,7 @@ namespace LAGS.Clients
         private void GetPlate()
         {
             var plate = PubManager.Instance.GetRandomPlate();
-            plate.GenerateId($"{gameObject.name}_{plate.Name}");
+            plate.GenerateId($"{gameObject.name}_{plate.Name}_{Guid.NewGuid()}");
             _plate = plate;
             _table.AddPlate(_plate);
             Debug.Log("Plate chosen");
@@ -271,12 +272,14 @@ namespace LAGS.Clients
         private void Eat()
         {
             if (!_isSitting || _plate.Status is not OrderStatus.Delivered || _isEscaping) { return; }
-            
-            _currentEatingTime -= Time.deltaTime;
-                
-            if (_currentEatingTime <= 0)
+
+            if (_currentEatingTime > 0)
             {
-                Escape();
+                _currentEatingTime -= Time.deltaTime;
+            }
+            else
+            {
+                _isFinishedEating = true;
             }
         }
 

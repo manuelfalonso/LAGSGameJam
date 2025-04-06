@@ -40,12 +40,12 @@ namespace LAGS
 
         private void OnNewOrder(Order order)
         {
-            if(_image.All(sprite => sprite.gameObject.activeInHierarchy)) { return; }
+            if (_image.All(image => image.enabled)) { return; }
 
-            var visual = _image.Where(visualPlate => !visualPlate.gameObject.activeInHierarchy).ToList();
+            var visual = _image.Where(visualPlate => !visualPlate.enabled).ToList();
             var plates = order.Plates;
             
-            if (plates.Count >= visual.Count)
+            if (plates.Count <= visual.Count)
             {
                 CompleteInfoOverPlates(plates, visual);
             }
@@ -66,7 +66,7 @@ namespace LAGS
 
         private void CompleteInfoOverVisuals(List<Plate> plate, List<Image> renderers)
         {
-            for (var i = 0; i < renderers.Count; i++)
+            for (var i = 0; i < renderers.Count -1; i++)
             {
                 renderers[i].sprite = plate[i].PlateSprite;
                 renderers[i].enabled = true;

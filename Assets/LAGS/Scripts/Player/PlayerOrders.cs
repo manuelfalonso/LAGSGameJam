@@ -79,7 +79,7 @@ namespace LAGS.Player
         
         public bool HasBothHandsOccupied()
         {
-            return LeftPlate is not null || RightPlate is not null;
+            return LeftPlate is not null && RightPlate is not null;
         }
         
         public bool IsHandOccupied(bool leftPlate)

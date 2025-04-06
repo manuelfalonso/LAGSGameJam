@@ -42,6 +42,8 @@ namespace LAGS.Pub
         private List<Plate> _plates = new();
         private Order _order;
         
+        public bool AllClientsFinishedEating => _clients.Count >= 0 && _clients.All(client => client.IsFinishedEating);
+        
         private Dictionary<Reason, bool> _reasons = new()
         {
             {Reason.RatAlerted, false},
@@ -71,6 +73,7 @@ namespace LAGS.Pub
 
         private void Update()
         {
+            CheckIfClientsAreReady();
             if (_order?.Plates[0].Status is not OrderStatus.InProgress) { return; }
             
             if(_order.AreAllPlatesReady) { return; }
@@ -87,6 +90,21 @@ namespace LAGS.Pub
             {
                 _currentPointsToReduce += _extraReducePoints;
             }
+        }
+
+        private void CheckIfClientsAreReady()
+        {
+            if (!AllClientsFinishedEating) { return; }
+            
+            if(_clients == null || !_clients.Any()) { return; }
+            if(_clients.Count == 0){ return;}
+            
+            foreach (var client in _clients)
+            {
+                LeaveTable(client);
+                client.Escape();
+            }
+            _clients.Clear();
         }
 
         private void PrepareOrder()
@@ -114,7 +132,6 @@ namespace LAGS.Pub
         
         public void LeaveTable(Client client)
         {
-            _clients.Remove(client);
             _order = null;
             _isEmpty = true;
             _plates.Clear();
