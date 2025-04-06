@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 717339258442440707}
   - component: {fileID: 6453617632723587315}
   - component: {fileID: 9220175136037676266}
+  - component: {fileID: 4333619400338830610}
   m_Layer: 0
   m_Name: SILLA_DERECHA
   m_TagString: Untagged
@@ -132,6 +133,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sittingPosition: {fileID: 6274515006168612187}
   _foodSprite: {fileID: 8818484487391575018}
+--- !u!114 &4333619400338830610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 356875172179880818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39fb3feb1cad7ce40a8c28c9e14f196b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spriteRenderer: {fileID: 0}
 --- !u!1 &1354314419942250017
 GameObject:
   m_ObjectHideFlags: 0
@@ -421,7 +435,7 @@ MonoBehaviour:
   - {x: -0.3047818, y: 0.27390546, z: 0}
   m_ShapePathHash: -1282080687
   m_Mesh: {fileID: 0}
-  m_InstanceId: -48742
+  m_InstanceId: 70530
   m_LocalBounds:
     m_Center: {x: 0.0055412054, y: 0.12805477, z: 0}
     m_Extent: {x: 0.39453268, y: 0.28184903, z: 0}
@@ -582,6 +596,7 @@ GameObject:
   - component: {fileID: 2913307932835312541}
   - component: {fileID: 8853583726521364009}
   - component: {fileID: 7636496561009670800}
+  - component: {fileID: 7888090549666520049}
   m_Layer: 0
   m_Name: SILLA_ADELANTE
   m_TagString: Untagged
@@ -672,6 +687,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sittingPosition: {fileID: 7963220221192831075}
   _foodSprite: {fileID: 5554810454811023600}
+--- !u!114 &7888090549666520049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3323565686837198457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39fb3feb1cad7ce40a8c28c9e14f196b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spriteRenderer: {fileID: 0}
 --- !u!1 &3709059734719211009
 GameObject:
   m_ObjectHideFlags: 0
@@ -683,6 +711,7 @@ GameObject:
   - component: {fileID: 1909323064610564113}
   - component: {fileID: 7584149854462633883}
   - component: {fileID: 5671671890182219887}
+  - component: {fileID: 7102435143581874750}
   m_Layer: 0
   m_Name: SILLA_IZQUIERDA
   m_TagString: Untagged
@@ -773,6 +802,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sittingPosition: {fileID: 8546140233055998383}
   _foodSprite: {fileID: 3880555944815912586}
+--- !u!114 &7102435143581874750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3709059734719211009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39fb3feb1cad7ce40a8c28c9e14f196b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spriteRenderer: {fileID: 0}
 --- !u!1 &4045124148841784307
 GameObject:
   m_ObjectHideFlags: 0
@@ -1037,6 +1079,7 @@ GameObject:
   - component: {fileID: 6598164982334207449}
   - component: {fileID: 5516775147073211573}
   - component: {fileID: 3738529880600759238}
+  - component: {fileID: 5882406206744050193}
   m_Layer: 0
   m_Name: SILLA_ATRAS
   m_TagString: Untagged
@@ -1127,6 +1170,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sittingPosition: {fileID: 18748568562162188}
   _foodSprite: {fileID: 5650238251950576069}
+--- !u!114 &5882406206744050193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6348437125941338176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39fb3feb1cad7ce40a8c28c9e14f196b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spriteRenderer: {fileID: 0}
 --- !u!1 &6626275867414169636
 GameObject:
   m_ObjectHideFlags: 0
@@ -1287,6 +1343,7 @@ GameObject:
   m_Component:
   - component: {fileID: 851915749980777831}
   - component: {fileID: 2352334251269222067}
+  - component: {fileID: 1225804217852233458}
   m_Layer: 0
   m_Name: Visual
   m_TagString: Untagged
@@ -1361,3 +1418,16 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1225804217852233458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9180293343029121351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39fb3feb1cad7ce40a8c28c9e14f196b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spriteRenderer: {fileID: 0}

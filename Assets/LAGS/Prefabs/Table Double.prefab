@@ -94,6 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8319196228663992551}
   - component: {fileID: 2162472660449650823}
+  - component: {fileID: 8992310366061196386}
   m_Layer: 0
   m_Name: mesadoble
   m_TagString: Untagged
@@ -168,6 +169,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &8992310366061196386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 757108150639685642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39fb3feb1cad7ce40a8c28c9e14f196b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spriteRenderer: {fileID: 0}
 --- !u!1 &2872199909283472816
 GameObject:
   m_ObjectHideFlags: 0
@@ -179,6 +193,7 @@ GameObject:
   - component: {fileID: 245124469285613514}
   - component: {fileID: 3623615604943086957}
   - component: {fileID: 1349302043751709357}
+  - component: {fileID: 8531972695213284672}
   m_Layer: 0
   m_Name: silla4
   m_TagString: Untagged
@@ -267,6 +282,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sittingPosition: {fileID: 245124469285613514}
   _foodSprite: {fileID: 0}
+--- !u!114 &8531972695213284672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2872199909283472816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39fb3feb1cad7ce40a8c28c9e14f196b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spriteRenderer: {fileID: 0}
 --- !u!1 &3163852607434969522
 GameObject:
   m_ObjectHideFlags: 0
@@ -278,6 +306,7 @@ GameObject:
   - component: {fileID: 6648657826597669926}
   - component: {fileID: 6548586103755202034}
   - component: {fileID: 8459307388116321654}
+  - component: {fileID: 7475695659062356457}
   m_Layer: 0
   m_Name: silla3
   m_TagString: Untagged
@@ -366,6 +395,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sittingPosition: {fileID: 6648657826597669926}
   _foodSprite: {fileID: 0}
+--- !u!114 &7475695659062356457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3163852607434969522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39fb3feb1cad7ce40a8c28c9e14f196b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spriteRenderer: {fileID: 0}
 --- !u!1 &4559904994196433869
 GameObject:
   m_ObjectHideFlags: 0
@@ -425,11 +467,21 @@ MonoBehaviour:
   - {fileID: 1349302043751709357}
   - {fileID: 8459307388116321654}
   - {fileID: 728189937609855468}
+  _orderReadyMarker: {fileID: 6532625137154899875}
   _startingPoints: 100
+  _ratingTime: 2
+  _pointsToReduce: 10
+  _threeStarsRating: {x: 0, y: 0}
+  _twoStarsRating: {x: 0, y: 0}
+  _oneStarsRating: {x: 0, y: 0}
+  _zeroStarsRating: {x: 0, y: 0}
   _addedTimeToWait: 15
   _reducePointsForPlateDelayed: 5
   _extraReducePoints: 1
-  _orderReadyMarker: {fileID: 6532625137154899875}
+  _starsPositions: []
+  _timeToHideStars: 2
+  _goodStarSprite: {fileID: 0}
+  _badStarSprite: {fileID: 0}
 --- !u!60 &2015742526530335390
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -558,7 +610,7 @@ MonoBehaviour:
   - {x: 0.793218, y: -0.44223833, z: 0}
   m_ShapePathHash: 0
   m_Mesh: {fileID: 0}
-  m_InstanceId: 49512
+  m_InstanceId: 70168
   m_LocalBounds:
     m_Center: {x: -0.00088334084, y: 0.05270052, z: 0}
     m_Extent: {x: 0.79410136, y: 0.49493885, z: 0}
@@ -573,6 +625,7 @@ GameObject:
   - component: {fileID: 1254600423165977182}
   - component: {fileID: 6576868582641709174}
   - component: {fileID: 728189937609855468}
+  - component: {fileID: 4955129344579095847}
   m_Layer: 0
   m_Name: silla3_1
   m_TagString: Untagged
@@ -661,6 +714,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sittingPosition: {fileID: 1254600423165977182}
   _foodSprite: {fileID: 0}
+--- !u!114 &4955129344579095847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6499133877148763562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39fb3feb1cad7ce40a8c28c9e14f196b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spriteRenderer: {fileID: 0}
 --- !u!1 &6532625137154899875
 GameObject:
   m_ObjectHideFlags: 0

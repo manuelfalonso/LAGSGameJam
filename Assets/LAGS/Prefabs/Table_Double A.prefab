@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 3366185325229230551}
   - component: {fileID: 2080706185195262954}
   - component: {fileID: 5483481789383864455}
+  - component: {fileID: 7925257520760116862}
   m_Layer: 0
   m_Name: SILLA_ATRAS_1
   m_TagString: Untagged
@@ -185,6 +186,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sittingPosition: {fileID: 1357426381226626703}
   _foodSprite: {fileID: 3236260658383695599}
+--- !u!114 &7925257520760116862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 733817154667185314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39fb3feb1cad7ce40a8c28c9e14f196b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spriteRenderer: {fileID: 0}
 --- !u!1 &833841582362293998
 GameObject:
   m_ObjectHideFlags: 0
@@ -386,7 +400,7 @@ MonoBehaviour:
   - {x: -0.38899148, y: 0.106355816, z: 0}
   m_ShapePathHash: 1490502855
   m_Mesh: {fileID: 0}
-  m_InstanceId: 34482
+  m_InstanceId: 70860
   m_LocalBounds:
     m_Center: {x: 0.2427913, y: -0.0025661588, z: 0}
     m_Extent: {x: 0.63178277, y: 0.41246992, z: 0}
@@ -401,6 +415,7 @@ GameObject:
   - component: {fileID: 5488171200402704029}
   - component: {fileID: 2821424940660195705}
   - component: {fileID: 8603403307308376422}
+  - component: {fileID: 1199678287363622673}
   m_Layer: 0
   m_Name: SILLA_DERECHA
   m_TagString: Untagged
@@ -491,6 +506,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sittingPosition: {fileID: 4722459953827632968}
   _foodSprite: {fileID: 129305247947700638}
+--- !u!114 &1199678287363622673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 979253289406166057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39fb3feb1cad7ce40a8c28c9e14f196b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spriteRenderer: {fileID: 0}
 --- !u!1 &1286897831991450328
 GameObject:
   m_ObjectHideFlags: 0
@@ -501,6 +529,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7390631613642875087}
   - component: {fileID: 5924296714720198717}
+  - component: {fileID: 400270869018483020}
   m_Layer: 0
   m_Name: Visual_1
   m_TagString: Untagged
@@ -575,6 +604,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &400270869018483020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1286897831991450328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39fb3feb1cad7ce40a8c28c9e14f196b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spriteRenderer: {fileID: 0}
 --- !u!1 &1398585893533467568
 GameObject:
   m_ObjectHideFlags: 0
@@ -669,6 +711,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4131488476217882769}
   - component: {fileID: 7179276532491202104}
+  - component: {fileID: 7171125018474545435}
   m_Layer: 0
   m_Name: Visual
   m_TagString: Untagged
@@ -743,6 +786,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &7171125018474545435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1759256612333177173}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39fb3feb1cad7ce40a8c28c9e14f196b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spriteRenderer: {fileID: 0}
 --- !u!1 &1927244738123461922
 GameObject:
   m_ObjectHideFlags: 0
@@ -754,6 +810,7 @@ GameObject:
   - component: {fileID: 4609315549046489593}
   - component: {fileID: 8925316665702239620}
   - component: {fileID: 1466515912333230344}
+  - component: {fileID: 1086063067237167553}
   m_Layer: 0
   m_Name: SILLA_ADELANTE_1
   m_TagString: Untagged
@@ -844,6 +901,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sittingPosition: {fileID: 9142697383737794753}
   _foodSprite: {fileID: 5785831245141794214}
+--- !u!114 &1086063067237167553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1927244738123461922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39fb3feb1cad7ce40a8c28c9e14f196b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spriteRenderer: {fileID: 0}
 --- !u!1 &2123084298040134517
 GameObject:
   m_ObjectHideFlags: 0
@@ -1192,6 +1262,7 @@ GameObject:
   - component: {fileID: 1173590172287104201}
   - component: {fileID: 8370272503615981819}
   - component: {fileID: 5233769554098194895}
+  - component: {fileID: 7582628668367068093}
   m_Layer: 0
   m_Name: SILLA_ATRAS
   m_TagString: Untagged
@@ -1282,6 +1353,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sittingPosition: {fileID: 8242469630238938247}
   _foodSprite: {fileID: 4480052649464909681}
+--- !u!114 &7582628668367068093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3805090797770999350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39fb3feb1cad7ce40a8c28c9e14f196b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spriteRenderer: {fileID: 0}
 --- !u!1 &4152474880420630008
 GameObject:
   m_ObjectHideFlags: 0
@@ -1324,6 +1408,7 @@ GameObject:
   - component: {fileID: 311520711382413234}
   - component: {fileID: 5491162621564883017}
   - component: {fileID: 574038700927064027}
+  - component: {fileID: 6891526858683905798}
   m_Layer: 0
   m_Name: SILLA_IZQUIERDA
   m_TagString: Untagged
@@ -1414,6 +1499,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sittingPosition: {fileID: 4826190533620002419}
   _foodSprite: {fileID: 7468966791014668763}
+--- !u!114 &6891526858683905798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4371264473173892903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39fb3feb1cad7ce40a8c28c9e14f196b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spriteRenderer: {fileID: 0}
 --- !u!1 &4398923271188067065
 GameObject:
   m_ObjectHideFlags: 0
@@ -1487,6 +1585,7 @@ GameObject:
   - component: {fileID: 7799951960534933965}
   - component: {fileID: 4362759478172394980}
   - component: {fileID: 8304012246931440903}
+  - component: {fileID: 5304057484963832361}
   m_Layer: 0
   m_Name: SILLA_ADELANTE
   m_TagString: Untagged
@@ -1577,6 +1676,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sittingPosition: {fileID: 3594046838887406088}
   _foodSprite: {fileID: 2321772381253338512}
+--- !u!114 &5304057484963832361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5152506876167422196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39fb3feb1cad7ce40a8c28c9e14f196b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spriteRenderer: {fileID: 0}
 --- !u!1 &5797084253218469494
 GameObject:
   m_ObjectHideFlags: 0

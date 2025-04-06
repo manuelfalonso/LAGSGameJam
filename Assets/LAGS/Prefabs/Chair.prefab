@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 3043655531086156973}
   - component: {fileID: 1536048308945720951}
   - component: {fileID: 657473329292413010}
+  - component: {fileID: 3025607158438188682}
   m_Layer: 0
   m_Name: Chair
   m_TagString: Untagged
@@ -184,3 +185,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sittingPosition: {fileID: 3043655531086156973}
   _foodSprite: {fileID: 150819991240616700}
+--- !u!114 &3025607158438188682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8106713220290215358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39fb3feb1cad7ce40a8c28c9e14f196b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spriteRenderer: {fileID: 1536048308945720951}

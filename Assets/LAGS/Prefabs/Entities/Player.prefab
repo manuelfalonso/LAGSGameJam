@@ -301,6 +301,7 @@ GameObject:
   - component: {fileID: 1665287438321936655}
   - component: {fileID: 978409069383123099}
   - component: {fileID: 4195794038500051567}
+  - component: {fileID: 4655757559431447152}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -693,6 +694,19 @@ MonoBehaviour:
   _onePlateParameterName: OnePlate
   _twoPlateParameterName: TwoPlates
   _cleanParameterName: IsCleaning
+--- !u!114 &4655757559431447152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6504654706477911857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39fb3feb1cad7ce40a8c28c9e14f196b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spriteRenderer: {fileID: 8952206974267236798}
 --- !u!1 &7549187006124386923
 GameObject:
   m_ObjectHideFlags: 0

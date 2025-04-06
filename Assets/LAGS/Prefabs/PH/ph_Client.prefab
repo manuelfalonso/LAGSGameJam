@@ -132,6 +132,7 @@ GameObject:
   - component: {fileID: 2795877604884956659}
   - component: {fileID: 1889161967347950756}
   - component: {fileID: 33565087380741239}
+  - component: {fileID: 6257090751001055764}
   m_Layer: 0
   m_Name: ph_Client
   m_TagString: Untagged
@@ -148,7 +149,7 @@ Transform:
   m_GameObject: {fileID: 3776262604319408298}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.4248105, y: 0.07019196, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -239,7 +240,7 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.33}
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.23
 --- !u!50 &2795877604884956659
@@ -294,6 +295,8 @@ MonoBehaviour:
   _focusTime: 2
   _ratDetectedReducePoints: 60
   _ratAlertedReducePoints: 10
+  _puddleDetectedReducePoints: 5
+  _cheffDetectedReducePoints: 5
 --- !u!195 &33565087380741239
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -303,7 +306,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 3776262604319408298}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 0.2
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
@@ -316,6 +319,20 @@ NavMeshAgent:
   m_BaseOffset: 0.5
   m_WalkableMask: 3
   m_ObstacleAvoidanceType: 4
+--- !u!114 &6257090751001055764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3776262604319408298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39fb3feb1cad7ce40a8c28c9e14f196b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spriteRenderer: {fileID: 9061197646749061581}
+  _sortingOrderOffset: 5
 --- !u!1 &7280291949241442461
 GameObject:
   m_ObjectHideFlags: 0
