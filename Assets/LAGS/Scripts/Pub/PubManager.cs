@@ -4,6 +4,7 @@ using LAGS.Clients;
 using LAGS.Pub;
 using SombraStudios.Shared.Patterns.Creational.Singleton;
 using UnityEngine;
+using UnityEngine.Events;
 using Random = UnityEngine.Random;
 
 namespace LAGS.Managers.Pub
@@ -16,6 +17,7 @@ namespace LAGS.Managers.Pub
         public Transform PubDoors => _pubDoors;
         
         [Header("Day")]
+        [SerializeField] private string _dayName;
         [Tooltip("* 60 is the value in minutes"), SerializeField] private float _dayDuration;
         [Tooltip("* 60 is the value in minutes"), SerializeField] private float _closeDoorTime;
         private float _currentTime;
@@ -23,6 +25,8 @@ namespace LAGS.Managers.Pub
         private bool _isDoorClosed;
         public float DayDuration => _dayDuration;
         public float CurrentTime => _currentTime;
+        public string DayName => _dayName;
+        
         
         [Header("Clients")]
         [SerializeField] private GameObject _clientPrefab;
@@ -37,8 +41,15 @@ namespace LAGS.Managers.Pub
         
         [Header("Plates")]
         [SerializeField] private Plate[] _plates;
-        
 
+        [Header("Score")] 
+        [SerializeField] private float _minScoreToWin;
+        private float _currentScore;
+        public float CurrentScore => _currentScore;
+        public float MinScoreToWin => _minScoreToWin;
+        
+        public UnityEvent DayFinished = new();
+        
         #region Monobehaviour
 
         private void Start()
@@ -134,10 +145,10 @@ namespace LAGS.Managers.Pub
 
             if (_isDayOver && _clients.Count == 0)
             {
-                //TODO: Add day end logic
+                DayFinished?.Invoke();
             }
         }
-
+        
         #endregion
         
         #region Tables
@@ -167,6 +178,15 @@ namespace LAGS.Managers.Pub
         public Plate GetRandomPlate()
         {
             return _plates[Random.Range(0, _plates.Length)];
+        }
+
+        #endregion
+
+        #region Score
+
+        public void AddScore(int score)
+        {
+            _currentScore += score;
         }
 
         #endregion
