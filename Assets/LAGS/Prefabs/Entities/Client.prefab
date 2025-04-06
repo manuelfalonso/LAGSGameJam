@@ -287,7 +287,7 @@ MonoBehaviour:
   _animator: {fileID: 5547696021848670873}
   _headAnimator: {fileID: 706296116372024910}
   _head: {fileID: 1927469931193864266}
-  _fov: {fileID: 1354159815410932599}
+  _fov: {fileID: 8319047465437346413}
   _clientSpeed: 2
   _timeToOrder: 0
   _eatingTime: 2
