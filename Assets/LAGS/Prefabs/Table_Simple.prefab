@@ -168,6 +168,54 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &2339540378989602757
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3958383097977359217}
+  - component: {fileID: 1913756104248847890}
+  m_Layer: 6
+  m_Name: Navmesh Obstacle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3958383097977359217
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2339540378989602757}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: 0.3855184, w: 0.9227002}
+  m_LocalPosition: {x: 0, y: 0.11, z: 0}
+  m_LocalScale: {x: 0.5795148, y: 0.5802938, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5759990758504292311}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 45.352}
+--- !u!208 &1913756104248847890
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2339540378989602757}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &2507838703129020455
 GameObject:
   m_ObjectHideFlags: 0
@@ -446,6 +494,7 @@ Transform:
   - {fileID: 3613881919840474915}
   - {fileID: 6297674732963877170}
   - {fileID: 9002485969735350143}
+  - {fileID: 3958383097977359217}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4453196825304192650
@@ -610,7 +659,7 @@ MonoBehaviour:
   - {x: -0.38899148, y: 0.106355816, z: 0}
   m_ShapePathHash: -2140966595
   m_Mesh: {fileID: 0}
-  m_InstanceId: 96496
+  m_InstanceId: 53332
   m_LocalBounds:
     m_Center: {x: 0.0055412054, y: 0.12805477, z: 0}
     m_Extent: {x: 0.39453268, y: 0.28184903, z: 0}
@@ -1029,6 +1078,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7062582011378237682, guid: b3e50428aa22a3047a5272786bc69363, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.086
+      objectReference: {fileID: 0}
+    - target: {fileID: 7062582011378237682, guid: b3e50428aa22a3047a5272786bc69363, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.19
+      objectReference: {fileID: 0}
     - target: {fileID: 8106713220290215358, guid: b3e50428aa22a3047a5272786bc69363, type: 3}
       propertyPath: m_Name
       value: Chair
@@ -1109,6 +1166,14 @@ PrefabInstance:
     - target: {fileID: 3043655531086156973, guid: b3e50428aa22a3047a5272786bc69363, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7062582011378237682, guid: b3e50428aa22a3047a5272786bc69363, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.005
+      objectReference: {fileID: 0}
+    - target: {fileID: 7062582011378237682, guid: b3e50428aa22a3047a5272786bc69363, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.186
       objectReference: {fileID: 0}
     - target: {fileID: 8106713220290215358, guid: b3e50428aa22a3047a5272786bc69363, type: 3}
       propertyPath: m_Name
@@ -1191,6 +1256,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7062582011378237682, guid: b3e50428aa22a3047a5272786bc69363, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.063
+      objectReference: {fileID: 0}
+    - target: {fileID: 7062582011378237682, guid: b3e50428aa22a3047a5272786bc69363, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.19
+      objectReference: {fileID: 0}
     - target: {fileID: 8106713220290215358, guid: b3e50428aa22a3047a5272786bc69363, type: 3}
       propertyPath: m_Name
       value: Chair_2
@@ -1271,6 +1344,14 @@ PrefabInstance:
     - target: {fileID: 3043655531086156973, guid: b3e50428aa22a3047a5272786bc69363, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7062582011378237682, guid: b3e50428aa22a3047a5272786bc69363, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.059
+      objectReference: {fileID: 0}
+    - target: {fileID: 7062582011378237682, guid: b3e50428aa22a3047a5272786bc69363, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 8106713220290215358, guid: b3e50428aa22a3047a5272786bc69363, type: 3}
       propertyPath: m_Name

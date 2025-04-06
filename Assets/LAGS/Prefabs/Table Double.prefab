@@ -225,6 +225,7 @@ Transform:
   - {fileID: 6823941315009873703}
   - {fileID: 2544315223197404020}
   - {fileID: 7811841755612497584}
+  - {fileID: 3454651647951634546}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &958647713243187875
@@ -391,7 +392,7 @@ MonoBehaviour:
   - {x: 0.793218, y: -0.44223833, z: 0}
   m_ShapePathHash: 0
   m_Mesh: {fileID: 0}
-  m_InstanceId: 95696
+  m_InstanceId: 50692
   m_LocalBounds:
     m_Center: {x: -0.00088334084, y: 0.05270052, z: 0}
     m_Extent: {x: 0.79410136, y: 0.49493885, z: 0}
@@ -862,6 +863,54 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &6294082272805478499
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3454651647951634546}
+  - component: {fileID: 6139833003593160491}
+  m_Layer: 6
+  m_Name: NavMeshObstacle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3454651647951634546
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6294082272805478499}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: 0.43392068, w: 0.9009511}
+  m_LocalPosition: {x: -0.01, y: 0.01, z: 0}
+  m_LocalScale: {x: 0.9695179, y: 1.5277715, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7227280561271843141}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 51.433}
+--- !u!208 &6139833003593160491
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6294082272805478499}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &6532625137154899875
 GameObject:
   m_ObjectHideFlags: 0
@@ -1007,6 +1056,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -0.083
       objectReference: {fileID: 0}
+    - target: {fileID: 7062582011378237682, guid: b3e50428aa22a3047a5272786bc69363, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.053
+      objectReference: {fileID: 0}
+    - target: {fileID: 7062582011378237682, guid: b3e50428aa22a3047a5272786bc69363, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.205
+      objectReference: {fileID: 0}
     - target: {fileID: 8106713220290215358, guid: b3e50428aa22a3047a5272786bc69363, type: 3}
       propertyPath: m_Name
       value: Chair_1
@@ -1091,6 +1148,14 @@ PrefabInstance:
     - target: {fileID: 5193640494825957072, guid: b3e50428aa22a3047a5272786bc69363, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.173
+      objectReference: {fileID: 0}
+    - target: {fileID: 7062582011378237682, guid: b3e50428aa22a3047a5272786bc69363, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.082
+      objectReference: {fileID: 0}
+    - target: {fileID: 7062582011378237682, guid: b3e50428aa22a3047a5272786bc69363, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.143
       objectReference: {fileID: 0}
     - target: {fileID: 8106713220290215358, guid: b3e50428aa22a3047a5272786bc69363, type: 3}
       propertyPath: m_Name
@@ -1177,6 +1242,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -0.045
       objectReference: {fileID: 0}
+    - target: {fileID: 7062582011378237682, guid: b3e50428aa22a3047a5272786bc69363, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.004
+      objectReference: {fileID: 0}
+    - target: {fileID: 7062582011378237682, guid: b3e50428aa22a3047a5272786bc69363, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.129
+      objectReference: {fileID: 0}
     - target: {fileID: 8106713220290215358, guid: b3e50428aa22a3047a5272786bc69363, type: 3}
       propertyPath: m_Name
       value: Chair
@@ -1261,6 +1334,14 @@ PrefabInstance:
     - target: {fileID: 5193640494825957072, guid: b3e50428aa22a3047a5272786bc69363, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.211
+      objectReference: {fileID: 0}
+    - target: {fileID: 7062582011378237682, guid: b3e50428aa22a3047a5272786bc69363, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.064
+      objectReference: {fileID: 0}
+    - target: {fileID: 7062582011378237682, guid: b3e50428aa22a3047a5272786bc69363, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 8106713220290215358, guid: b3e50428aa22a3047a5272786bc69363, type: 3}
       propertyPath: m_Name
