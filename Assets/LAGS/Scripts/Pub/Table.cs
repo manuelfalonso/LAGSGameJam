@@ -42,6 +42,8 @@ namespace LAGS.Pub
         private bool _isEmpty;
         private List<Plate> _plates = new();
         private Order _order;
+        private AudioSource audioSource;
+
         
         public bool AllClientsFinishedEating => _clients.Count >= 0 && _clients.All(client => client.IsFinishedEating);
         
@@ -70,6 +72,7 @@ namespace LAGS.Pub
         private void Start()
         {
             _isEmpty = true;
+            audioSource = GetComponent<AudioSource>();
         }
 
         private void Update()
@@ -106,6 +109,8 @@ namespace LAGS.Pub
                 client.Escape();
             }
             _clients.Clear();
+
+            audioSource.Play();
         }
 
         private void PrepareOrder()

@@ -35,6 +35,8 @@ namespace LAGS.Managers.Pub
         private float _currentTimeToNewClient;
         private List<Client> _clients;
         private bool CanGenerateClient => IsThereEmptyTable() && !_isDoorClosed && !_isDayOver;
+        private AudioSource audioSource;
+
         
         [Header("Tables")]
         [SerializeField] private List<Table> _tables = new();
@@ -55,6 +57,7 @@ namespace LAGS.Managers.Pub
         private void Start()
         {
             Initialize();
+            audioSource = GetComponent<AudioSource>();
         }
 
         private void Update()
@@ -137,6 +140,8 @@ namespace LAGS.Managers.Pub
                 _clients.Add(client);
                 client.AssignTable(table);
             }
+
+            audioSource.Play();
         }
         
         public void RemoveClient(Client client)

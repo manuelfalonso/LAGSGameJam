@@ -11,6 +11,7 @@ namespace LAGS
         [SerializeField] private CameraShakeController _cameraShakeController;
         [SerializeField] private CameraShakeDataSO _cameraShakeData;
         [SerializeField] private Animator _animator;
+        [SerializeField] private AudioClip onHitSFX;
 
         [Header("Configuration")]
         [SerializeField] private float _kickForce = 10f;
@@ -19,11 +20,14 @@ namespace LAGS
         [Header("Debug")]
         [SerializeField] private bool _showLogs;
 
+        private AudioSource audioSource;
+
         private void Awake()
         {
             this.SafeInit(ref _rigidbody2D);
             this.SafeInit(ref _cameraShakeController);
             this.SafeInit(ref _animator);
+            audioSource = GetComponent<AudioSource>();
         }
 
         public void Interact(GameObject interactor)
@@ -52,6 +56,9 @@ namespace LAGS
             {
                 Debug.LogWarning("No Animator assigned to Kickable", this);
             }
+
+            //sfx
+            audioSource.PlayOneShot(onHitSFX);
         }
 
         public void InteractExit(GameObject interactor)

@@ -13,6 +13,8 @@ namespace LAGS
         private List<Plate> _plates = new();
         private List<Plate> _readyPlates = new();
 
+        private AudioSource audioSource;
+
         private void AddOrders(Order order)
         {
             foreach (var plate in order.Plates)
@@ -21,7 +23,12 @@ namespace LAGS
                 _plates.Add(plate);
             }
         }
-        
+
+        private void Start()
+        {
+            audioSource = GetComponent<AudioSource>();
+        }
+
         private void Update()
         {
             TickPlates();
@@ -57,6 +64,8 @@ namespace LAGS
                 
                 visualPlate.gameObject.SetActive(true);
                 visualPlate.sprite = plate.PlateSprite;
+
+                audioSource.Play();
             }
         }
 
