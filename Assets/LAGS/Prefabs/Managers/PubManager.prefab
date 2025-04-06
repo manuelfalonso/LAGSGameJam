@@ -52,7 +52,9 @@ MonoBehaviour:
   _dayName: 
   _dayDuration: 300
   _closeDoorTime: 250
-  _clientPrefab: {fileID: 3776262604319408298, guid: bd9cb88ef1b91904db40b9e21fa12ee8, type: 3}
+  _clientPrefab:
+  - {fileID: 8699474377304777248, guid: d030881f4977b4443864ae0725d8bcef, type: 3}
+  - {fileID: 3776262604319408298, guid: bd9cb88ef1b91904db40b9e21fa12ee8, type: 3}
   _minTimeToNewClient: 15
   _maxTimeToNewClient: 15
   _tables: []

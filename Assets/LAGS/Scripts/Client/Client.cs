@@ -191,6 +191,8 @@ namespace LAGS.Clients
                     _headAnimator.SetBool("DownRight",false);
                     _headAnimator.SetBool("UpLeft",false);
                     _headAnimator.SetBool("UpRight",false);
+                    // Rotate the FOV Z axis to 135 degrees
+                    _fov.transform.rotation = Quaternion.Euler(0, 0, 135);
                     break;
                 case ChairDirection.DownRight:
                     _animator.SetBool("DownLeft",false);
@@ -201,6 +203,7 @@ namespace LAGS.Clients
                     _headAnimator.SetBool("DownRight",true);
                     _headAnimator.SetBool("UpLeft",false);
                     _headAnimator.SetBool("UpRight",false);
+                    _fov.transform.rotation = Quaternion.Euler(0, 0, 225);
                     break;
                 case ChairDirection.UpLeft:
                     _animator.SetBool("DownLeft",false);
@@ -211,6 +214,7 @@ namespace LAGS.Clients
                     _headAnimator.SetBool("DownRight",false);
                     _headAnimator.SetBool("UpLeft",true);
                     _headAnimator.SetBool("UpRight",false);
+                    _fov.transform.rotation = Quaternion.Euler(0, 0, 60);
                     break;
                 case ChairDirection.UpRight:
                     _animator.SetBool("DownLeft",false);
@@ -221,6 +225,7 @@ namespace LAGS.Clients
                     _headAnimator.SetBool("DownRight",false);
                     _headAnimator.SetBool("UpLeft",false);
                     _headAnimator.SetBool("UpRight",true);
+                    _fov.transform.rotation = Quaternion.Euler(0, 0, 315);
                     break;
             }
         }
