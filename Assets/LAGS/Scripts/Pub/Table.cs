@@ -29,8 +29,9 @@ namespace LAGS.Pub
         [SerializeField] private int _reducePointsForPlateDelayed = 5;
         [SerializeField] private int _extraReducePoints = 1;
         private float _currentTimeToWait;
-        
-        [Header("UI Settings")]
+
+        [Header("UI Settings")] 
+        [SerializeField] private GameObject _container;
         [SerializeField] private List<SpriteRenderer> _starsPositions = new();
         [SerializeField] private float _timeToHideStars = 2f;
         [SerializeField] private Sprite _goodStarSprite;
@@ -230,18 +231,19 @@ namespace LAGS.Pub
             {
                 star.sprite = goodStars > 0 ? _goodStarSprite : _badStarSprite;
                 goodStars--;
-                star.gameObject.SetActive(true);
             }
-
+            
+            _container.SetActive(true);
             StartCoroutine(nameof(WaitToTurnOffStars));
         }
 
         private IEnumerator WaitToTurnOffStars()
         {
             yield return new WaitForSeconds(_timeToHideStars);
+            _container.SetActive(false);
+            
             foreach (var star in _starsPositions)
             {
-                star.gameObject.SetActive(false);
                 star.sprite = null;
             }
         }
