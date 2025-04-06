@@ -6,6 +6,7 @@ using LAGS.Pub;
 using SombraStudios.Shared.AI;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Rendering.Universal;
 
 namespace LAGS.Clients
 {
@@ -16,15 +17,18 @@ namespace LAGS.Clients
         [SerializeField] private Animator _animator;
         [SerializeField] private Animator _headAnimator;
         [SerializeField] private Transform _head;
-        [SerializeField] private GameObject _fov;
+        [SerializeField] private Light2D _fov;
+
         [Header("Basic Settings")]
         [SerializeField] private float _clientSpeed;
         [SerializeField] private float _timeToOrder;
         [SerializeField] private float _eatingTime;
         private float _currentEatingTime;
+
         [Header("Field of View Settings")]
         [SerializeField] private float _fovAngle;
         [SerializeField] private LayerMask _obstacleMask;
+
         [Header("Alert Settings")] 
         [SerializeField] private float _focusTime = 2f;
         [SerializeField] private int _ratDetectedReducePoints = 60;
@@ -156,7 +160,7 @@ namespace LAGS.Clients
                 _headAnimator.SetBool("IsSitting", true);
                 SelectDirection();
                 _agent.enabled = false;
-                _fov.SetActive(true);
+                _fov.enabled = true;
             }
             
             if(_isSitting) { return; }
