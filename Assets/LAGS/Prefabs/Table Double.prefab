@@ -390,7 +390,7 @@ MonoBehaviour:
   - {x: 0.793218, y: -0.44223833, z: 0}
   m_ShapePathHash: 0
   m_Mesh: {fileID: 0}
-  m_InstanceId: 78866
+  m_InstanceId: 95696
   m_LocalBounds:
     m_Center: {x: -0.00088334084, y: 0.05270052, z: 0}
     m_Extent: {x: 0.79410136, y: 0.49493885, z: 0}
@@ -858,6 +858,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7227280561271843141}
     m_Modifications:
+    - target: {fileID: 657473329292413010, guid: b3e50428aa22a3047a5272786bc69363, type: 3}
+      propertyPath: _direction
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3043655531086156973, guid: b3e50428aa22a3047a5272786bc69363, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.4917517
@@ -1024,6 +1028,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7227280561271843141}
     m_Modifications:
+    - target: {fileID: 657473329292413010, guid: b3e50428aa22a3047a5272786bc69363, type: 3}
+      propertyPath: _direction
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3043655531086156973, guid: b3e50428aa22a3047a5272786bc69363, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.008248299
