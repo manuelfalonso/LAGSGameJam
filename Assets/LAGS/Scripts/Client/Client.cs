@@ -28,12 +28,14 @@ namespace LAGS.Clients
         [SerializeField] private int _ratDetectedReducePoints = 60;
         [SerializeField] private int _ratAlertedReducePoints = 10;
         [SerializeField] private int _puddleDetectedReducePoints = 5;
+        [SerializeField] private int _cheffDetectedReducePoints = 5;
         private float _currentFocusTime;
         
         private Plate _plate;
         public Plate Plate => _plate;
         private Table _table;
         private Chair _chair;
+        private Cheff _cheff;
         public Chair Chair => _chair;
         private bool _isAlert;
         private bool _isEscaping;
@@ -65,6 +67,7 @@ namespace LAGS.Clients
 
             RatEnterDetection(other);
             PuddleEnterDetection(other);
+            ChefEnterDetection(other);
         }
 
         private void OnTriggerExit2D(Collider2D other)
@@ -73,6 +76,7 @@ namespace LAGS.Clients
 
             RatExitDetection(other);
             PuddleExitDetection(other);
+            ChefExitDetection(other);
         }
 
         private void RatEnterDetection(Collider2D other)
@@ -95,6 +99,13 @@ namespace LAGS.Clients
             }
         }
 
+        private void ChefEnterDetection(Collider2D other)
+        {
+            if(other.TryGetComponent<Cheff>(out var chef)) { return; }
+            
+            _cheff = chef;
+        }
+
         private void RatExitDetection(Collider2D other)
         {
             if (!other.TryGetComponent<Rat>(out var rat)) { return; }
@@ -113,6 +124,13 @@ namespace LAGS.Clients
             {
                 _puddles.Remove(puddle.transform);
             }
+        }
+
+        private void ChefExitDetection(Collider2D other)
+        {
+            if(!other.TryGetComponent<Cheff>(out var chef)) { return; }
+            
+            _cheff = null;
         }
 
         private void RotateClient()
@@ -137,6 +155,7 @@ namespace LAGS.Clients
         {
             CheckRatHazard();
             CheckPuddleHazard();
+            CheckChefHazard();
         }
 
         private void CheckRatHazard()
@@ -154,6 +173,8 @@ namespace LAGS.Clients
                 };
 
                 if (!LineOfSight.IsInFieldOfViewAndInSight(data, _fovAngle, out var hit)) { continue; }
+                
+                if(hit.collider == null) { continue; }
                 
                 if(hit.collider.TryGetComponent(out Table table)){ if(table == _table) { continue; } }
                 
@@ -186,6 +207,25 @@ namespace LAGS.Clients
             }
         }
 
+        private void CheckChefHazard()
+        {
+            if(_cheff is null) { return; }
+
+            var data = new LineOfSight.IsInSightData
+            {
+                StartPoint = _head,
+                EndPoint = _cheff.transform,
+                ObstaclesMask = _obstacleMask,
+                Is2D = true
+            };
+            
+            if(!LineOfSight.IsInFieldOfViewAndInSight(data, _fovAngle, out var _)) { return; }
+            
+            if(!_cheff.JustSneeze) { return; }
+            
+            _table.ReducePoints(_cheffDetectedReducePoints, Reason.ChefDetected);
+        }
+        
         private void ClientAlert()
         {
             if(!_isAlert || _pointsReduced) { return; }
