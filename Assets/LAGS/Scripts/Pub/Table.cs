@@ -3,6 +3,7 @@ using NaughtyAttributes;
 using System.Collections.Generic;
 using System.Linq;
 using LAGS.Clients;
+using LAGS.Player;
 using UnityEngine;
 
 namespace LAGS.Pub
@@ -138,9 +139,7 @@ namespace LAGS.Pub
         {
             if(_order == null || _isEmpty) { return; }
             
-            if (!interactor.TryGetComponent(out Interact interact)) { return; }
-            
-            var player = interact.PlayerOrders;
+            if (!interactor.TryGetComponent(out PlayerOrders player)) { return; }
             
             if(CanTakeOrder())
             {
