@@ -3,6 +3,7 @@ using LAGS.Managers.Pub;
 using SombraStudios.Shared.Scenes;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace LAGS
@@ -62,6 +63,8 @@ namespace LAGS
         {
             if (_daySuccess)
             {
+                if (SceneManager.GetActiveScene().buildIndex == SceneManager.sceneCount - 1)
+                    SceneController.Instance.LoadSceneByIndex(0);
                 SceneController.Instance.LoadNextScene();
             }
             else
