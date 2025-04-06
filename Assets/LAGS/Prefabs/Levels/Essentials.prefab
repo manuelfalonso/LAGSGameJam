@@ -572,6 +572,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -0.95
       objectReference: {fileID: 0}
+    - target: {fileID: 6047179261932418457, guid: 8b9d3bb8933b98342901397de609497b, type: 3}
+      propertyPath: _activeSpawns.Array.data[0].IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6047179261932418457, guid: 8b9d3bb8933b98342901397de609497b, type: 3}
+      propertyPath: _activeSpawns.Array.data[1].IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7840210336313411342, guid: 8b9d3bb8933b98342901397de609497b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
