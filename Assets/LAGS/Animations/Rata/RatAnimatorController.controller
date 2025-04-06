@@ -400,7 +400,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _movingTime: 10
   _rangeRadius: 5
-  _moveSpeed: 1
+  _moveSpeed: 0
   _distanceToTargetThreshold: 0.1
   _obstacleLayerMask:
     serializedVersion: 2

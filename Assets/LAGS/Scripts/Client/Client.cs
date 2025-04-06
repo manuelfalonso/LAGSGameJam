@@ -13,6 +13,8 @@ namespace LAGS.Clients
     {
         [Header("References")]
         [SerializeField] private NavMeshAgent _agent;
+        [SerializeField] private Animator _animator;
+        [SerializeField] private Animator _headAnimator;
         [SerializeField] private Transform _head;
         [SerializeField] private GameObject _fov;
         [Header("Basic Settings")]
@@ -31,6 +33,7 @@ namespace LAGS.Clients
         [SerializeField] private int _cheffDetectedReducePoints = 5;
         private float _currentFocusTime;
         
+        private Vector2 _lastPosition;
         private Plate _plate;
         public Plate Plate => _plate;
         private Table _table;
@@ -149,13 +152,79 @@ namespace LAGS.Clients
                 transform.position = _chair.transform.position;
                 _agent.isStopped = true;
                 _isSitting = true;
+                _animator.SetBool("IsSitting", true);
+                _headAnimator.SetBool("IsSitting", true);
+                SelectDirection();
                 _agent.enabled = false;
                 _fov.SetActive(true);
+            }
+            
+            if(_isSitting) { return; }
+            
+            Vector2 currentPosition = _animator.transform.position;
+            Vector2 deltaPosition = currentPosition - _lastPosition;
+
+            var clampedDeltaX = Mathf.Clamp(deltaPosition.x, -1f, 1f);
+            var clampedDeltaY = Mathf.Clamp(deltaPosition.y, -1f, 1f);
+
+            _lastPosition = currentPosition;
+            
+            _animator.SetFloat("MoveX", clampedDeltaX);
+            _animator.SetFloat("MoveY", clampedDeltaY);
+        }
+
+        private void SelectDirection()
+        {
+            switch (_chair.Direction)
+            {
+                default:
+                case ChairDirection.DownLeft:
+                    _animator.SetBool("DownLeft",true);
+                    _animator.SetBool("DownRight",false);
+                    _animator.SetBool("UpLeft",false);
+                    _animator.SetBool("UpRight",false);
+                    _headAnimator.SetBool("DownLeft",true);
+                    _headAnimator.SetBool("DownRight",false);
+                    _headAnimator.SetBool("UpLeft",false);
+                    _headAnimator.SetBool("UpRight",false);
+                    break;
+                case ChairDirection.DownRight:
+                    _animator.SetBool("DownLeft",false);
+                    _animator.SetBool("DownRight",true);
+                    _animator.SetBool("UpLeft",false);
+                    _animator.SetBool("UpRight",false);          
+                    _headAnimator.SetBool("DownLeft",false);
+                    _headAnimator.SetBool("DownRight",true);
+                    _headAnimator.SetBool("UpLeft",false);
+                    _headAnimator.SetBool("UpRight",false);
+                    break;
+                case ChairDirection.UpLeft:
+                    _animator.SetBool("DownLeft",false);
+                    _animator.SetBool("DownRight",false);
+                    _animator.SetBool("UpLeft",true);
+                    _animator.SetBool("UpRight",false);
+                    _headAnimator.SetBool("DownLeft",false);
+                    _headAnimator.SetBool("DownRight",false);
+                    _headAnimator.SetBool("UpLeft",true);
+                    _headAnimator.SetBool("UpRight",false);
+                    break;
+                case ChairDirection.UpRight:
+                    _animator.SetBool("DownLeft",false);
+                    _animator.SetBool("DownRight",false);
+                    _animator.SetBool("UpLeft",false);
+                    _animator.SetBool("UpRight",true);
+                    _headAnimator.SetBool("DownLeft",false);
+                    _headAnimator.SetBool("DownRight",false);
+                    _headAnimator.SetBool("UpLeft",false);
+                    _headAnimator.SetBool("UpRight",true);
+                    break;
             }
         }
         
         private void CheckHazards()
         {
+            if(!_isSitting) { return; }
+            
             CheckRatHazard();
             CheckPuddleHazard();
             CheckChefHazard();
@@ -176,10 +245,11 @@ namespace LAGS.Clients
                 };
 
                 if (!LineOfSight.IsInFieldOfViewAndInSight(data, _fovAngle, out var hit)) { continue; }
-                
-                if(hit.collider == null) { continue; }
-                
-                if(hit.collider.TryGetComponent(out Table table)){ if(table == _table) { continue; } }
+
+                if (hit.collider != null)
+                { 
+                    if(hit.collider.TryGetComponent(out Table table)){ if(table == _table) { continue; } }
+                }
                 
                 _isAlert = true;
                 _currentFocusTime = _focusTime;
@@ -240,8 +310,17 @@ namespace LAGS.Clients
             }
             
             var direction = _data.EndPoint.position - _head.transform.position;
+            
             var angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.Euler(0, 0, angle);
+            _fov.transform.rotation = Quaternion.Euler(0, 0, angle) * Quaternion.Euler(0, 0, -90);
+            
+            var clampedDeltaX = Mathf.Clamp(direction.x, -1f, 1f);
+            var clampedDeltaY = Mathf.Clamp(direction.y, -1f, 1f);
+            
+            _headAnimator.SetFloat("HeadMoveX", clampedDeltaX);
+            _headAnimator.SetFloat("HeadMoveY", clampedDeltaY);
+            _headAnimator.SetBool("IsMoving", true);
+
             _currentFocusTime -= Time.deltaTime;
             if (_currentFocusTime <= 0)
             {
@@ -249,11 +328,13 @@ namespace LAGS.Clients
                 _table.ReducePoints(_ratDetectedReducePoints, Reason.RatDetected);
             }
         }
-
+        
         public void Escape()
         {
             _chair.Leave();
             _isSitting = false;
+            _animator.SetBool("IsSitting", false);
+            _headAnimator.SetBool("IsSitting", false);
             _agent.enabled = true;  
             _isEscaping = true;
             _agent.isStopped = false;
@@ -266,7 +347,6 @@ namespace LAGS.Clients
             plate.GenerateId($"{gameObject.name}_{plate.Name}_{Guid.NewGuid()}");
             _plate = plate;
             _table.AddPlate(_plate);
-            Debug.Log("Plate chosen");
         }
 
         private void Eat()

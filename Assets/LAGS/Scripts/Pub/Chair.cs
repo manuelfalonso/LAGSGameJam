@@ -7,8 +7,10 @@ namespace LAGS.Pub
     {
         [SerializeField] private Transform _sittingPosition;
         [SerializeField] private SpriteRenderer _foodSprite;
+        [SerializeField] private ChairDirection _direction;
         private Client _client;
         public Transform SittingPosition => _sittingPosition;
+        public ChairDirection Direction => _direction;
         
         public bool IsEmpty => !_client;
 
@@ -29,5 +31,13 @@ namespace LAGS.Pub
             _foodSprite.gameObject.SetActive(false);
             _foodSprite.sprite = null;
         }
+    }
+
+    public enum ChairDirection
+    {
+        UpRight,
+        UpLeft,
+        DownRight,
+        DownLeft,
     }
 }

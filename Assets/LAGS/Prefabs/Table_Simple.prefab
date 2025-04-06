@@ -610,7 +610,7 @@ MonoBehaviour:
   - {x: -0.38899148, y: 0.106355816, z: 0}
   m_ShapePathHash: -2140966595
   m_Mesh: {fileID: 0}
-  m_InstanceId: 87118
+  m_InstanceId: 96496
   m_LocalBounds:
     m_Center: {x: 0.0055412054, y: 0.12805477, z: 0}
     m_Extent: {x: 0.39453268, y: 0.28184903, z: 0}
@@ -1062,6 +1062,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5832641781228344497}
     m_Modifications:
+    - target: {fileID: 657473329292413010, guid: b3e50428aa22a3047a5272786bc69363, type: 3}
+      propertyPath: _direction
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1536048308945720951, guid: b3e50428aa22a3047a5272786bc69363, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -1139,6 +1143,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5832641781228344497}
     m_Modifications:
+    - target: {fileID: 657473329292413010, guid: b3e50428aa22a3047a5272786bc69363, type: 3}
+      propertyPath: _direction
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1536048308945720951, guid: b3e50428aa22a3047a5272786bc69363, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -1216,6 +1224,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5832641781228344497}
     m_Modifications:
+    - target: {fileID: 657473329292413010, guid: b3e50428aa22a3047a5272786bc69363, type: 3}
+      propertyPath: _direction
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1536048308945720951, guid: b3e50428aa22a3047a5272786bc69363, type: 3}
       propertyPath: m_Sprite
       value: 
