@@ -193,13 +193,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2339540378989602757}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: 0.3855184, w: 0.9227002}
+  m_LocalRotation: {x: -0, y: -0, z: 0.45278296, w: 0.8916208}
   m_LocalPosition: {x: 0, y: 0.11, z: 0}
   m_LocalScale: {x: 0.5795148, y: 0.5802938, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5759990758504292311}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 45.352}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 53.845}
 --- !u!208 &1913756104248847890
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -210,7 +210,7 @@ NavMeshObstacle:
   m_Enabled: 1
   serializedVersion: 3
   m_Shape: 1
-  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_Extents: {x: 0.29, y: 0.35, z: 0.5}
   m_MoveThreshold: 0.1
   m_Carve: 1
   m_CarveOnlyStationary: 1
@@ -659,7 +659,7 @@ MonoBehaviour:
   - {x: -0.38899148, y: 0.106355816, z: 0}
   m_ShapePathHash: -2140966595
   m_Mesh: {fileID: 0}
-  m_InstanceId: 53332
+  m_InstanceId: 86522
   m_LocalBounds:
     m_Center: {x: 0.0055412054, y: 0.12805477, z: 0}
     m_Extent: {x: 0.39453268, y: 0.28184903, z: 0}
@@ -1258,11 +1258,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7062582011378237682, guid: b3e50428aa22a3047a5272786bc69363, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.063
+      value: -0.073
       objectReference: {fileID: 0}
     - target: {fileID: 7062582011378237682, guid: b3e50428aa22a3047a5272786bc69363, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.19
+      value: -0.006
       objectReference: {fileID: 0}
     - target: {fileID: 8106713220290215358, guid: b3e50428aa22a3047a5272786bc69363, type: 3}
       propertyPath: m_Name

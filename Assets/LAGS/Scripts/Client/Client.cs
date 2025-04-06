@@ -177,6 +177,17 @@ namespace LAGS.Clients
             _animator.SetFloat("MoveY", clampedDeltaY);
         }
 
+        private void SelectLightDirection()
+        {
+            _fov.transform.rotation = _chair.Direction switch
+            {
+                ChairDirection.UpRight => Quaternion.Euler(0, 0, 315),
+                ChairDirection.UpLeft => Quaternion.Euler(0, 0, 60),
+                ChairDirection.DownRight => Quaternion.Euler(0, 0, 225),
+                ChairDirection.DownLeft => Quaternion.Euler(0, 0, 135),
+                _ => throw new ArgumentOutOfRangeException()
+            };
+        }
         private void SelectDirection()
         {
             if (_isSitting) { return; }
@@ -315,11 +326,11 @@ namespace LAGS.Clients
         
         private void ClientAlert()
         {
-            if (!_isAlert || _pointsReduced || _rats.Count == 0)
+            if (!_isAlert || _pointsReduced || _rats.Count == 0 || !_isSitting)
             {
                 _isAlert = false;
                 _headAnimator.SetBool("IsMoving", false);
-                SelectDirection();
+                SelectLightDirection();
                 return;    
             }
 
