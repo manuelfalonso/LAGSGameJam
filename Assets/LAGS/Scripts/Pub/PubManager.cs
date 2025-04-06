@@ -29,7 +29,7 @@ namespace LAGS.Managers.Pub
         
         
         [Header("Clients")]
-        [SerializeField] private GameObject _clientPrefab;
+        [SerializeField] private List<GameObject> _clientPrefab;
         [SerializeField] private float _minTimeToNewClient;
         [SerializeField] private float _maxTimeToNewClient;
         private float _currentTimeToNewClient;
@@ -135,7 +135,8 @@ namespace LAGS.Managers.Pub
             
             for (var i = 0; i < totalClients; i++)
             {
-                var client = Instantiate(_clientPrefab, _pubDoors.position, Quaternion.identity, _clientSpawnPoint)
+                var clientPrefab = _clientPrefab[Random.Range(0, _clientPrefab.Count)];
+                var client = Instantiate(clientPrefab, _pubDoors.position, Quaternion.identity, _clientSpawnPoint)
                     .GetComponent<Client>();
                 _clients.Add(client);
                 client.AssignTable(table);
