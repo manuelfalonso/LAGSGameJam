@@ -16,7 +16,7 @@ namespace LAGS.Managers.Pub
         [SerializeField] private Transform _pubDoors;
         [SerializeField] private Transform _clientSpawnPoint;
         public Transform PubDoors => _pubDoors;
-        
+
         [Header("Day")]
         [SerializeField] private string _dayName;
         [Tooltip("* 60 is the value in minutes"), SerializeField] private float _dayDuration;
@@ -27,8 +27,8 @@ namespace LAGS.Managers.Pub
         public float DayDuration => _dayDuration;
         public float CurrentTime => _currentTime;
         public string DayName => _dayName;
-        
-        
+
+
         [Header("Clients")]
         [SerializeField] private List<GameObject> _clientPrefab;
         [SerializeField] private float _minTimeToNewClient;
@@ -38,21 +38,21 @@ namespace LAGS.Managers.Pub
         private bool CanGenerateClient => IsThereEmptyTable() && !_isDoorClosed && !_isDayOver;
         private AudioSource audioSource;
 
-        
+
         [Header("Tables")]
         [SerializeField] private List<Table> _tables = new();
-        
+
         [Header("Plates")]
         [SerializeField] private Plate[] _plates;
 
-        [Header("Score")] 
+        [Header("Score")]
         [SerializeField] private float _minScoreToWin;
         private float _currentScore;
         public float CurrentScore => _currentScore;
         public float MinScoreToWin => _minScoreToWin;
-        
+
         public UnityEvent DayFinished = new();
-        
+
         #region Monobehaviour
 
         private void Start()
@@ -63,14 +63,14 @@ namespace LAGS.Managers.Pub
 
         private void Update()
         {
-            if(_isDayOver) { return; }
-            
+            if (_isDayOver) { return; }
+
             ManageDayTime();
             NewClientTimer();
         }
 
         #endregion
-        
+
         #region Other
 
         private void Initialize()
@@ -87,7 +87,7 @@ namespace LAGS.Managers.Pub
 
         private void ManageDayTime()
         {
-            if(_isDayOver) { return; }
+            if (_isDayOver) { return; }
 
             if (_currentTime >= _dayDuration)
             {
@@ -97,9 +97,9 @@ namespace LAGS.Managers.Pub
             {
                 _currentTime += Time.deltaTime;
             }
-            
-            if(_isDoorClosed) { return; }
-            
+
+            if (_isDoorClosed) { return; }
+
             if (_currentTime >= _closeDoorTime)
             {
                 _isDoorClosed = true;
@@ -107,13 +107,13 @@ namespace LAGS.Managers.Pub
         }
 
         #endregion
-        
+
         #region Clients
 
         private void NewClientTimer()
         {
-            if(!CanGenerateClient) { return; }
-            
+            if (!CanGenerateClient) { return; }
+
             if (_currentTimeToNewClient <= 0)
             {
                 _currentTimeToNewClient = Random.Range(_minTimeToNewClient, _maxTimeToNewClient);
@@ -131,9 +131,11 @@ namespace LAGS.Managers.Pub
             var maxClients = tables.Select(table => table.GetTotalSpaces()).Prepend(0).Max();
             var totalClients = Random.Range(1, maxClients + 1);
             var table = GetRandomTable(totalClients);
-            
-            if(table is null) { yield break; }
-            
+
+            if (table is null) { yield break; }
+
+            table.ChairsReserved = totalClients;
+
             for (var i = 0; i < totalClients; i++)
             {
                 var clientPrefab = _clientPrefab[Random.Range(0, _clientPrefab.Count)];
@@ -146,7 +148,7 @@ namespace LAGS.Managers.Pub
 
             audioSource.Play();
         }
-        
+
         public void RemoveClient(Client client)
         {
             _clients.Remove(client);
@@ -156,9 +158,9 @@ namespace LAGS.Managers.Pub
                 DayFinished?.Invoke();
             }
         }
-        
+
         #endregion
-        
+
         #region Tables
         public bool IsThereEmptyTable()
         {
@@ -176,7 +178,7 @@ namespace LAGS.Managers.Pub
                 .Where(table => table.IsEmpty)
                 .Where(table => table.GetTotalSpaces() >= maxClients)
                 .ToList();
-            
+
             return tables.Count == 0 ? null : tables[Random.Range(0, tables.Count)];
         }
         #endregion

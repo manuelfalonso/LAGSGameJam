@@ -38,11 +38,14 @@ namespace LAGS.Pub
         [SerializeField] private Sprite _goodStarSprite;
         [SerializeField] private Sprite _badStarSprite;
         
+        public int ChairsReserved { get => _chairsReserved; set => _chairsReserved = value; }
+
         private List<Client> _clients = new();
         private bool _isEmpty;
         private List<Plate> _plates = new();
         private Order _order;
         private AudioSource audioSource;
+        private int _chairsReserved;
 
         
         public bool AllClientsFinishedEating => _clients.Count >= 0 && _clients.All(client => client.IsFinishedEating);
@@ -140,6 +143,7 @@ namespace LAGS.Pub
         {
             _order = null;
             _isEmpty = true;
+            _chairsReserved = 0;
             _plates.Clear();
             CalculateReview();
         }
@@ -148,7 +152,7 @@ namespace LAGS.Pub
         {
             _plates.Add(plate);
 
-            if (_plates.Count == _clients.Count)
+            if (_plates.Count == _clients.Count && _plates.Count == _chairsReserved)
             {
                 PrepareOrder();
             }
