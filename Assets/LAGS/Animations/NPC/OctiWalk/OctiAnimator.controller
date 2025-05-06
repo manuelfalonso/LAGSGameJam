@@ -72,6 +72,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: UpRight
     m_EventTreshold: 0
+  - m_ConditionMode: 1
+    m_ConditionEvent: IsSitting
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -6834946344783292620}
   m_Solo: 0
@@ -97,6 +100,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: UpLeft
     m_EventTreshold: 0
+  - m_ConditionMode: 1
+    m_ConditionEvent: IsSitting
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 6475972988753578393}
   m_Solo: 0
@@ -120,7 +126,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: DownLeft
+    m_ConditionEvent: IsSitting
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 6186063799899470289}
@@ -145,7 +151,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: UpLeft
+    m_ConditionEvent: IsSitting
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 6186063799899470289}
@@ -266,6 +272,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: DownLeft
     m_EventTreshold: 0
+  - m_ConditionMode: 1
+    m_ConditionEvent: IsSitting
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 8593509658366874268}
   m_Solo: 0
@@ -355,7 +364,7 @@ BlendTree:
   - serializedVersion: 2
     m_Motion: {fileID: 7400000, guid: cde58101550553145b4ac427455e0507, type: 2}
     m_Threshold: 0
-    m_Position: {x: -1, y: -1}
+    m_Position: {x: -0.05, y: -0.05}
     m_TimeScale: 1
     m_CycleOffset: 0
     m_DirectBlendParameter: MoveX
@@ -363,7 +372,7 @@ BlendTree:
   - serializedVersion: 2
     m_Motion: {fileID: 7400000, guid: eef5b79244a5c2d4cbc6ab6a428b985e, type: 2}
     m_Threshold: 0.109375
-    m_Position: {x: 1, y: -1}
+    m_Position: {x: 0.05, y: -0.05}
     m_TimeScale: 1
     m_CycleOffset: 0
     m_DirectBlendParameter: MoveX
@@ -371,7 +380,7 @@ BlendTree:
   - serializedVersion: 2
     m_Motion: {fileID: 7400000, guid: e44cdbc03e682ab4588fdfeef0ef4fee, type: 2}
     m_Threshold: 0.21875
-    m_Position: {x: -1, y: 1}
+    m_Position: {x: -0.05, y: 0.05}
     m_TimeScale: 1
     m_CycleOffset: 0
     m_DirectBlendParameter: MoveX
@@ -379,7 +388,7 @@ BlendTree:
   - serializedVersion: 2
     m_Motion: {fileID: 7400000, guid: ca4a522114ecbce44836b20cd5c364d7, type: 2}
     m_Threshold: 0.328125
-    m_Position: {x: 1, y: 1}
+    m_Position: {x: 0.05, y: 0.05}
     m_TimeScale: 1
     m_CycleOffset: 0
     m_DirectBlendParameter: MoveX
@@ -387,7 +396,7 @@ BlendTree:
   - serializedVersion: 2
     m_Motion: {fileID: 7400000, guid: aeab55cdfe8dd1a449463d0023986436, type: 2}
     m_Threshold: 0.4375
-    m_Position: {x: 0, y: -1}
+    m_Position: {x: 0, y: -0.05}
     m_TimeScale: 1
     m_CycleOffset: 0
     m_DirectBlendParameter: MoveX
@@ -395,7 +404,7 @@ BlendTree:
   - serializedVersion: 2
     m_Motion: {fileID: 7400000, guid: fb3c2d1f55e93cd4eb36d4eed7ea7853, type: 2}
     m_Threshold: 0.546875
-    m_Position: {x: -1, y: 0}
+    m_Position: {x: -0.05, y: 0}
     m_TimeScale: 1
     m_CycleOffset: 0
     m_DirectBlendParameter: MoveX
@@ -403,7 +412,7 @@ BlendTree:
   - serializedVersion: 2
     m_Motion: {fileID: 7400000, guid: b211fc8057d986c44bb3627acdc1dedf, type: 2}
     m_Threshold: 0.65625
-    m_Position: {x: 1, y: 0}
+    m_Position: {x: 0.05, y: 0}
     m_TimeScale: 1
     m_CycleOffset: 0
     m_DirectBlendParameter: MoveX
@@ -411,7 +420,7 @@ BlendTree:
   - serializedVersion: 2
     m_Motion: {fileID: 7400000, guid: 00a93474293856842b206b3bfc48c5cd, type: 2}
     m_Threshold: 0.765625
-    m_Position: {x: 0, y: 1}
+    m_Position: {x: 0, y: 0.05}
     m_TimeScale: 1
     m_CycleOffset: 0
     m_DirectBlendParameter: MoveX
@@ -467,7 +476,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: UpRight
+    m_ConditionEvent: IsSitting
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 6186063799899470289}
@@ -523,6 +532,9 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 1
     m_ConditionEvent: DownRight
+    m_EventTreshold: 0
+  - m_ConditionMode: 1
+    m_ConditionEvent: IsSitting
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 4408312932229191499}
@@ -601,7 +613,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: DownRight
+    m_ConditionEvent: IsSitting
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 6186063799899470289}
