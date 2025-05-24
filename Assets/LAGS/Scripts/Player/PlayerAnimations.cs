@@ -19,10 +19,22 @@ namespace LAGS
         [SerializeField] private string _twoPlateParameterName = "TwoPlates";
         [SerializeField] private string _cleanParameterName = "IsCleaning";
 
-        // Update is called once per frame
-        void Update()
+        private bool _isDayOver;
+
+        private void OnEnable()
         {
-            if (PubManager.Instance.IsDayOver) { return; }
+            PubManager.Instance.DayFinished.RemoveListener(DayOver);
+            PubManager.Instance.DayFinished.AddListener(DayOver);
+        }
+
+        private void OnDisable()
+        {
+            PubManager.Instance.DayFinished.RemoveListener(DayOver);
+        }
+
+        private void Update()
+        {
+            if (_isDayOver) { return; }
             
             UpdateAnimator();
         }
@@ -49,6 +61,11 @@ namespace LAGS
 
             _animator.SetFloat(_moveXParameterName, moveX);
             _animator.SetFloat(_moveYParameterName, moveY);
+        }
+
+        private void DayOver()
+        {
+            _isDayOver = true;
         }
 
         public void SetOnePlate(bool value)

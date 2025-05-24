@@ -38,7 +38,7 @@ namespace LAGS
             _rectTransform = GetComponent<RectTransform>();
         }
 
-        private void OnDestroy()
+        private void OnDisable()
         {
             PubManager.Instance.DayFinished.RemoveListener(OnDayOver);
             _nextButton.onClick.RemoveListener(ChangeScene);
@@ -69,7 +69,7 @@ namespace LAGS
             }
             else
             {
-                SceneController.Instance.Restart();
+                SceneController.Instance.ReloadScene();
             }
         }
     }

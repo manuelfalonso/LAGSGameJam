@@ -376,6 +376,7 @@ namespace LAGS.Clients
         
         public void Escape()
         {
+            _fov.enabled = false;
             _chair.Leave();
             _isSitting = false;
             _animator.SetBool("IsSitting", false);
