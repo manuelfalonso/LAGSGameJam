@@ -20,7 +20,10 @@ namespace LAGS
             var progress = Mathf.Clamp01(current / _maxValue);
             var angle = progress * 360f;
             
-            _rotateImage.eulerAngles = new Vector3(0, 0, -angle);
+            if (!float.IsNaN(angle) && !float.IsInfinity(angle))
+            {
+                _rotateImage.eulerAngles = new Vector3(0, 0, -angle);
+            }
         }
     }
 }

@@ -22,7 +22,7 @@ namespace LAGS.Pub
         [MinMaxSlider(0, 100)] [SerializeField] private Vector2 _twoStarsRating;
         [MinMaxSlider(0, 100)] [SerializeField] private Vector2 _oneStarsRating;
         [MinMaxSlider(0, 100)] [SerializeField] private Vector2 _zeroStarsRating;
-        private int _currentPoints;
+        private float _currentPoints;
         private int _currentPointsToReduce;
         
         [Header("Waiting Settings")]
@@ -259,6 +259,9 @@ namespace LAGS.Pub
                 star.sprite = goodStars > 0 ? _goodStarSprite : _badStarSprite;
                 goodStars--;
             }
+            
+            var multiplier = 1 + (_clients.Count / 10f);
+            _currentPoints *= multiplier;
             
             PubManager.Instance.AddScore(_currentPoints);
             _container.SetActive(true);

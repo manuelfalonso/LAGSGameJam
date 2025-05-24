@@ -194,7 +194,7 @@ namespace LAGS.Managers.Pub
 
         #region Score
 
-        public void AddScore(int score)
+        public void AddScore(float score)
         {
             _currentScore += score;
         }
