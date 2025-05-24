@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using LAGS.Managers.Pub;
 using NaughtyAttributes;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -19,6 +20,7 @@ namespace LAGS
         private float _currentTimeToSneeze;
         private bool _justSneeze;
         private AudioSource audioSource;
+        private Coroutine _sneezeCoroutine;
         public bool JustSneeze => _justSneeze;
         
         private void Start()
@@ -27,16 +29,37 @@ namespace LAGS
             audioSource = GetComponent<AudioSource>();
         }
 
+        private void OnEnable()
+        {
+            PubManager.Instance.DayFinished.RemoveListener(DayOver);
+            PubManager.Instance.DayFinished.AddListener(DayOver);
+        }
+
+        private void OnDisable()
+        {
+            PubManager.Instance.DayFinished.RemoveListener(DayOver);
+        }
+
         private void Update()
         {
+            if (PubManager.Instance.IsDayOver) { return; }
+            
             if (_currentTimeToSneeze > 0)
             {
                 _currentTimeToSneeze -= Time.deltaTime;
             }
             else
             {
-                StartCoroutine(nameof(CallAboutSneeze));
+                _sneezeCoroutine = StartCoroutine(nameof(CallAboutSneeze));
                 GetRandomTime();
+            }
+        }
+
+        private void DayOver()
+        {
+            if (_sneezeCoroutine != null)
+            {
+                StopCoroutine(_sneezeCoroutine);
             }
         }
 
@@ -45,7 +68,7 @@ namespace LAGS
             _animator.SetBool(AboutSneeze, true);
             _sneezePreview.SetActive(true);
             yield return new WaitForSeconds(_previousSneezeTime);
-            StartCoroutine(nameof(SneezeDuration));
+            _sneezeCoroutine = StartCoroutine(nameof(SneezeDuration));
         }
 
         private IEnumerator SneezeDuration()
@@ -58,6 +81,7 @@ namespace LAGS
             _animator.SetBool(Sneeze, false);
             _justSneeze = false;
             audioSource.Play();
+            _sneezeCoroutine = null;
         }
         
         private void GetRandomTime()

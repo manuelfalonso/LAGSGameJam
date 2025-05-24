@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using LAGS.Managers.Pub;
 using UnityEngine;
 
 namespace LAGS
@@ -21,6 +22,8 @@ namespace LAGS
         // Update is called once per frame
         void Update()
         {
+            if (PubManager.Instance.IsDayOver) { return; }
+            
             UpdateAnimator();
         }
 

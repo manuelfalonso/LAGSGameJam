@@ -1,6 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using LAGS.Managers.Pub;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace LAGS
 {
@@ -11,10 +14,28 @@ namespace LAGS
 
         [Header("Debug")]
         [SerializeField] private bool _showLogs;
+        
+        private Coroutine _spawnCoroutine;
 
         private void Start()
         {
             StartSpawning();
+        }
+
+        private void OnEnable()
+        {
+            PubManager.Instance.DayFinished.RemoveListener(DayOver);
+            PubManager.Instance.DayFinished.AddListener(DayOver);
+        }
+
+        private void OnDisable()
+        {
+            PubManager.Instance.DayFinished.RemoveListener(DayOver);
+        }
+
+        private void DayOver()
+        {
+            StopCoroutine(_spawnCoroutine);
         }
 
         private void StartSpawning()
@@ -23,7 +44,7 @@ namespace LAGS
             {
                 if (spawn.SpawnData.SpawnAtStart)
                 {
-                    StartCoroutine(SpawnCoroutine(spawn.SpawnData));
+                    _spawnCoroutine = StartCoroutine(SpawnCoroutine(spawn.SpawnData));
                 }
             }
         }

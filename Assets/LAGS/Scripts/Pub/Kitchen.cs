@@ -82,7 +82,6 @@ namespace LAGS
                     audioSource.PlayOneShot(_scribbleSFX);
 
                 var order = player.Orders[0];
-                Debug.Log("Adding order to kitchen");
                 AddOrders(order);
                 player.RemoveOrder(order);
             }

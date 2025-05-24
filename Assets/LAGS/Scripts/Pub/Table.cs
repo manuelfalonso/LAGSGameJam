@@ -16,8 +16,6 @@ namespace LAGS.Pub
         
         [Header("Rating Settings")]
         [SerializeField] private int _startingPoints = 100;
-        [SerializeField] private float _ratingTime = 2f;
-        [SerializeField] private int _pointsToReduce = 10;
         [MinMaxSlider(0, 100)] [SerializeField] private Vector2 _threeStarsRating;
         [MinMaxSlider(0, 100)] [SerializeField] private Vector2 _twoStarsRating;
         [MinMaxSlider(0, 100)] [SerializeField] private Vector2 _oneStarsRating;
@@ -186,7 +184,6 @@ namespace LAGS.Pub
             {
                 if (plate.Id.Equals(player.LeftPlate?.Id))
                 {
-                    Debug.Log("Delivered");
                     player.RemovePlates(true);
                     plate.ChangeStatus(OrderStatus.Delivered);
                     var client = _clients.Find(p => p.Plate.Id == plate.Id);

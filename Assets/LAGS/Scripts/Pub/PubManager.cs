@@ -27,7 +27,7 @@ namespace LAGS.Managers.Pub
         public float DayDuration => _dayDuration;
         public float CurrentTime => _currentTime;
         public string DayName => _dayName;
-
+        public bool IsDayOver => _isDayOver;
 
         [Header("Clients")]
         [SerializeField] private List<GameObject> _clientPrefab;
