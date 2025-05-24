@@ -22,7 +22,7 @@ namespace LAGS.Pub
         [MinMaxSlider(0, 100)] [SerializeField] private Vector2 _twoStarsRating;
         [MinMaxSlider(0, 100)] [SerializeField] private Vector2 _oneStarsRating;
         [MinMaxSlider(0, 100)] [SerializeField] private Vector2 _zeroStarsRating;
-        private int _currentPoints;
+        private float _currentPoints;
         private int _currentPointsToReduce;
         
         [Header("Waiting Settings")]
@@ -260,7 +260,10 @@ namespace LAGS.Pub
                 goodStars--;
             }
             
-            PubManager.Instance.AddScore(_currentPoints);
+            var multiplier = 1 + (_clients.Count / 10f);
+            var scaledPoints = _currentPoints * multiplier;
+            
+            PubManager.Instance.AddScore(scaledPoints);
             _container.SetActive(true);
             StartCoroutine(nameof(WaitToTurnOffStars));
         }
