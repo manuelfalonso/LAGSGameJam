@@ -1,3 +1,4 @@
+using System;
 using DG.Tweening;
 using LAGS.Managers.Pub;
 using SombraStudios.Shared.Scenes;
@@ -33,12 +34,18 @@ namespace LAGS
 
         private void Start()
         {
-            PubManager.Instance.DayFinished.AddListener(OnDayOver);
-            _nextButton.onClick.AddListener(ChangeScene);
             _rectTransform = GetComponent<RectTransform>();
         }
 
-        private void OnDestroy()
+        private void OnEnable()
+        {
+            PubManager.Instance.DayFinished.RemoveListener(OnDayOver);
+            PubManager.Instance.DayFinished.AddListener(OnDayOver);
+            _nextButton.onClick.RemoveListener(ChangeScene);
+            _nextButton.onClick.AddListener(ChangeScene);
+        }
+
+        private void OnDisable()
         {
             PubManager.Instance.DayFinished.RemoveListener(OnDayOver);
             _nextButton.onClick.RemoveListener(ChangeScene);
@@ -69,7 +76,7 @@ namespace LAGS
             }
             else
             {
-                SceneController.Instance.Restart();
+                SceneController.Instance.ReloadScene();
             }
         }
     }
