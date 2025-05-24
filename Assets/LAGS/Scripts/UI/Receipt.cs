@@ -49,7 +49,7 @@ namespace LAGS
             var pub = PubManager.Instance;
             _dayTxt.text = pub.DayName;
             _minScoreNeeded.text = $"{pub.MinScoreToWin}";
-            _totalScore.text = $"{Mathf.Round(pub.CurrentScore)}";
+            _totalScore.text = $"{Mathf.RoundToInt(pub.CurrentScore)}";
             
             _daySuccess = pub.CurrentScore >= pub.MinScoreToWin;
             _resultTxt.text = _daySuccess ? DAY_SUCCESS : DAY_FAILED;
