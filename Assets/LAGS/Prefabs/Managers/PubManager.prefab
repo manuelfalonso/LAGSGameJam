@@ -58,31 +58,7 @@ MonoBehaviour:
   _minTimeToNewClient: 15
   _maxTimeToNewClient: 15
   _tables: []
-  _plates:
-  - Name: Milanesa
-    PlateSprite: {fileID: 21300000, guid: 1c1c931383a31104580caf58c8b07d3c, type: 3}
-    TimeToPrepare: 10
-    Status: 0
-  - Name: Carne con Papas
-    PlateSprite: {fileID: 21300000, guid: cb756d76163fa5946b9a6dc5f47ab168, type: 3}
-    TimeToPrepare: 10
-    Status: 0
-  - Name: Fideos
-    PlateSprite: {fileID: 21300000, guid: db91ca04eaead5b4ca9b6e1459e0f379, type: 3}
-    TimeToPrepare: 10
-    Status: 0
-  - Name: Empanada
-    PlateSprite: {fileID: 21300000, guid: 60fdf12fa24869e4592fbda03dee6602, type: 3}
-    TimeToPrepare: 10
-    Status: 0
-  - Name: Ensalada
-    PlateSprite: {fileID: 21300000, guid: 6f45fabfc1f64584393016d9086e8f83, type: 3}
-    TimeToPrepare: 10
-    Status: 0
-  - Name: Sifon
-    PlateSprite: {fileID: 21300000, guid: d9db4633f57f9f44cab70240e5f1c186, type: 3}
-    TimeToPrepare: 10
-    Status: 0
+  _plates: {fileID: 11400000, guid: 62c30a8c06afc5b46bc6c2ecc2d87c87, type: 2}
   _minScoreToWin: 0
   DayFinished:
     m_PersistentCalls:

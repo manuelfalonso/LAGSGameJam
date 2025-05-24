@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using LAGS.Clients;
 using LAGS.Pub;
+using LAGS.ScriptablesObjects.Plates;
 using SombraStudios.Shared.Patterns.Creational.Singleton;
 using UnityEngine;
 using UnityEngine.Events;
@@ -43,7 +44,7 @@ namespace LAGS.Managers.Pub
         [SerializeField] private List<Table> _tables = new();
 
         [Header("Plates")]
-        [SerializeField] private Plate[] _plates;
+        [SerializeField] private PlatesOptions _plates;
 
         [Header("Score")]
         [SerializeField] private float _minScoreToWin;
@@ -187,7 +188,7 @@ namespace LAGS.Managers.Pub
 
         public Plate GetRandomPlate()
         {
-            return _plates[Random.Range(0, _plates.Length)];
+            return _plates.GetRandomPlate();
         }
 
         #endregion
