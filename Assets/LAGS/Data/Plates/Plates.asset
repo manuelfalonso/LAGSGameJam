@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 278e5a793b71c6b45898ca690db0d6f9, type: 3}
+  m_Name: Plates
+  m_EditorClassIdentifier: 
+  Plates:
+  - Name: Milanesa
+    PlateSprite: {fileID: 21300000, guid: 1c1c931383a31104580caf58c8b07d3c, type: 3}
+    TimeToPrepare: 10
+    Status: 0
+  - Name: Carne Con Papas
+    PlateSprite: {fileID: 21300000, guid: cb756d76163fa5946b9a6dc5f47ab168, type: 3}
+    TimeToPrepare: 10
+    Status: 0
+  - Name: Fideos
+    PlateSprite: {fileID: 21300000, guid: db91ca04eaead5b4ca9b6e1459e0f379, type: 3}
+    TimeToPrepare: 10
+    Status: 0
+  - Name: Empanada
+    PlateSprite: {fileID: 21300000, guid: 60fdf12fa24869e4592fbda03dee6602, type: 3}
+    TimeToPrepare: 10
+    Status: 0
+  - Name: Ensalada
+    PlateSprite: {fileID: 21300000, guid: 6f45fabfc1f64584393016d9086e8f83, type: 3}
+    TimeToPrepare: 10
+    Status: 0
+  - Name: Sifon
+    PlateSprite: {fileID: 21300000, guid: d9db4633f57f9f44cab70240e5f1c186, type: 3}
+    TimeToPrepare: 10
+    Status: 0
