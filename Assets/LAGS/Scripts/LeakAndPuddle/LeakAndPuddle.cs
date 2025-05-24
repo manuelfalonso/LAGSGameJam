@@ -39,6 +39,8 @@ namespace LAGS
 
         private IEnumerator TransitionToPuddle()
         {
+            yield return new WaitForSeconds(_leakAndPuddleData.TimeTransitionToPuddle);
+
             // Stop the leak particle system
             if (_leakParticleSystem != null)
             {
@@ -52,8 +54,6 @@ namespace LAGS
                 _puddle.gameObject.SetActive(true);
                 _puddle.Setup(_leakAndPuddleData);
             }
-
-            yield return new WaitForSeconds(_leakAndPuddleData.TimeTransitionToPuddle);
         }
     }
 }
