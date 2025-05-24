@@ -1,3 +1,4 @@
+using LAGS.Managers.Pub;
 using LAGS.Player;
 using SombraStudios.Shared.Patterns.Behavioural.Observer.ScriptableObjects;
 using UnityEngine;
@@ -17,6 +18,8 @@ namespace LAGS
 
         private void Update()
         {
+            if (PubManager.Instance.IsDayOver) { return; }
+            
             if (_isInteracting)
             {
                 Clean(Time.deltaTime);

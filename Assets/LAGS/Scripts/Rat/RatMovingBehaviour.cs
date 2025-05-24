@@ -1,4 +1,5 @@
-﻿using SombraStudios.Shared.Utility.Timers.CsharpTimer;
+﻿using LAGS.Managers.Pub;
+using SombraStudios.Shared.Utility.Timers.CsharpTimer;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -26,6 +27,8 @@ namespace LAGS
 
         public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
+            if (PubManager.Instance.IsDayOver) { return; }
+            
             _lastPosition = animator.transform.position;
 
             if (_navMeshAgent == null)
@@ -46,6 +49,8 @@ namespace LAGS
 
         public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
+            if (PubManager.Instance.IsDayOver) { return; }
+            
             SetAnimatorParameters(animator);
 
             //Debug.Log($"{_navMeshAgent.hasPath} {_navMeshAgent.pathStatus} {_navMeshAgent.remainingDistance}");

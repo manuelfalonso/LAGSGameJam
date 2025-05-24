@@ -1,4 +1,8 @@
 //using LAGS.Managers.Inputs;
+
+using LAGS.Managers.Pub;
+using SombraStudios.Shared.Gameplay.PlayerController;
+using SombraStudios.Shared.Gameplay.PlayerMovement2D;
 using UnityEngine;
 //using UnityEngine.InputSystem;
 
@@ -10,6 +14,9 @@ namespace LAGS
         [Header("References")]
         [SerializeField] private Interact _interact;
         [SerializeField] private Transform _dragFollowTarget;
+
+        [SerializeField] private CharacterController2D _characterController;
+        [SerializeField] private PlayerMovement2DTopDown _playerMovement;
 
         [Header("Properties")]
         //[SerializeField] private string _dragActionName;
@@ -24,12 +31,23 @@ namespace LAGS
         {
             UnsubscribeFromInputs();
             SubscribeToInputs();
+            
+            PubManager.Instance.DayFinished.RemoveListener(DayOver);
+            PubManager.Instance.DayFinished.AddListener(DayOver);
         }
 
         private void OnDisable()
         {
             UnsubscribeFromInputs();
+            PubManager.Instance.DayFinished.RemoveListener(DayOver);
         }
+
+        private void DayOver()
+        {
+            _characterController.enabled = false;
+            _playerMovement.enabled = false;
+        }
+
         #endregion
 
 

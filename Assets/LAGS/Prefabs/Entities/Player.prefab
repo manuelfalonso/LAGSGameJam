@@ -680,6 +680,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _interact: {fileID: 7743725400404876506}
   _dragFollowTarget: {fileID: 1384121276202362578}
+  _characterController: {fileID: 1232489326450789545}
+  _playerMovement: {fileID: 1675490985058959413}
   _dragActionReference: {fileID: -860162991306899570, guid: 2e5ed64877d16a143bab8f789b71164b, type: 3}
 --- !u!114 &4195794038500051567
 MonoBehaviour:
