@@ -261,9 +261,9 @@ namespace LAGS.Pub
             }
             
             var multiplier = 1 + (_clients.Count / 10f);
-            _currentPoints *= multiplier;
+            var scaledPoints = _currentPoints * multiplier;
             
-            PubManager.Instance.AddScore(_currentPoints);
+            PubManager.Instance.AddScore(scaledPoints);
             _container.SetActive(true);
             StartCoroutine(nameof(WaitToTurnOffStars));
         }
