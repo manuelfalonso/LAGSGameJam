@@ -29,14 +29,14 @@ namespace LAGS.Clients
         [SerializeField] private float _fovAngle;
         [SerializeField] private LayerMask _obstacleMask;
 
-        [Header("Alert Settings")] 
+        [Header("Alert Settings")]
         [SerializeField] private float _focusTime = 2f;
         [SerializeField] private int _ratDetectedReducePoints = 60;
         [SerializeField] private int _ratAlertedReducePoints = 10;
         [SerializeField] private int _puddleDetectedReducePoints = 5;
         [SerializeField] private int _cheffDetectedReducePoints = 5;
         private float _currentFocusTime;
-        
+
         private Vector2 _lastPosition;
         private Plate _plate;
         public Plate Plate => _plate;
@@ -53,6 +53,7 @@ namespace LAGS.Clients
         private List<Transform> _rats = new();
         private List<Transform> _puddles = new();
         private LineOfSight.IsInSightData _data;
+        private float _currentMovingTime;
 
         private void Start()
         {
@@ -110,8 +111,8 @@ namespace LAGS.Clients
 
         private void ChefEnterDetection(Collider2D other)
         {
-            if(other.TryGetComponent<Cheff>(out var chef)) { return; }
-            
+            if (other.TryGetComponent<Cheff>(out var chef)) { return; }
+
             _cheff = chef;
         }
 
@@ -137,8 +138,8 @@ namespace LAGS.Clients
 
         private void ChefExitDetection(Collider2D other)
         {
-            if(!other.TryGetComponent<Cheff>(out var chef)) { return; }
-            
+            if (!other.TryGetComponent<Cheff>(out var chef)) { return; }
+
             _cheff = null;
         }
 
@@ -152,7 +153,7 @@ namespace LAGS.Clients
                     Destroy(gameObject);
                     return;
                 }
-                
+
                 transform.position = _chair.transform.position;
                 _agent.isStopped = true;
                 _animator.SetBool("IsSitting", true);
@@ -161,10 +162,28 @@ namespace LAGS.Clients
                 _isSitting = true;
                 _agent.enabled = false;
                 _fov.enabled = true;
+                _currentMovingTime = 0f;
             }
-            
-            if(_isSitting) { return; }
-            
+
+            // Force client to reach destination
+            if (_agent.isOnNavMesh && _agent.remainingDistance > 1f)
+            {
+                _currentMovingTime += Time.deltaTime;
+                Debug.Log(_currentMovingTime, this);
+                if (_currentMovingTime >= 4f)
+                {
+                    transform.position = _agent.destination;
+                    _currentMovingTime = 0f;
+                    Debug.Log("Out of time", this);
+                }
+            }
+            else
+            {
+                _currentMovingTime = 0f;
+            }
+
+            if (_isSitting) { return; }
+
             Vector2 currentPosition = _animator.transform.position;
             Vector2 deltaPosition = currentPosition - _lastPosition;
 
@@ -172,7 +191,7 @@ namespace LAGS.Clients
             var clampedDeltaY = Mathf.Clamp(deltaPosition.y, -1f, 1f);
 
             _lastPosition = currentPosition;
-            
+
             _animator.SetFloat("MoveX", clampedDeltaX);
             _animator.SetFloat("MoveY", clampedDeltaY);
         }
@@ -188,6 +207,7 @@ namespace LAGS.Clients
                 _ => throw new ArgumentOutOfRangeException()
             };
         }
+
         private void SelectDirection()
         {
             if (_isSitting) { return; }
@@ -196,57 +216,57 @@ namespace LAGS.Clients
             {
                 default:
                 case ChairDirection.DownLeft:
-                    _animator.SetBool("DownLeft",true);
-                    _animator.SetBool("DownRight",false);
-                    _animator.SetBool("UpLeft",false);
-                    _animator.SetBool("UpRight",false);
-                    _headAnimator.SetBool("DownLeft",true);
-                    _headAnimator.SetBool("DownRight",false);
-                    _headAnimator.SetBool("UpLeft",false);
-                    _headAnimator.SetBool("UpRight",false);
+                    _animator.SetBool("DownLeft", true);
+                    _animator.SetBool("DownRight", false);
+                    _animator.SetBool("UpLeft", false);
+                    _animator.SetBool("UpRight", false);
+                    _headAnimator.SetBool("DownLeft", true);
+                    _headAnimator.SetBool("DownRight", false);
+                    _headAnimator.SetBool("UpLeft", false);
+                    _headAnimator.SetBool("UpRight", false);
                     // Rotate the FOV Z axis to 135 degrees
                     _fov.transform.rotation = Quaternion.Euler(0, 0, 135);
                     break;
                 case ChairDirection.DownRight:
-                    _animator.SetBool("DownLeft",false);
-                    _animator.SetBool("DownRight",true);
-                    _animator.SetBool("UpLeft",false);
-                    _animator.SetBool("UpRight",false);          
-                    _headAnimator.SetBool("DownLeft",false);
-                    _headAnimator.SetBool("DownRight",true);
-                    _headAnimator.SetBool("UpLeft",false);
-                    _headAnimator.SetBool("UpRight",false);
+                    _animator.SetBool("DownLeft", false);
+                    _animator.SetBool("DownRight", true);
+                    _animator.SetBool("UpLeft", false);
+                    _animator.SetBool("UpRight", false);
+                    _headAnimator.SetBool("DownLeft", false);
+                    _headAnimator.SetBool("DownRight", true);
+                    _headAnimator.SetBool("UpLeft", false);
+                    _headAnimator.SetBool("UpRight", false);
                     _fov.transform.rotation = Quaternion.Euler(0, 0, 225);
                     break;
                 case ChairDirection.UpLeft:
-                    _animator.SetBool("DownLeft",false);
-                    _animator.SetBool("DownRight",false);
-                    _animator.SetBool("UpLeft",true);
-                    _animator.SetBool("UpRight",false);
-                    _headAnimator.SetBool("DownLeft",false);
-                    _headAnimator.SetBool("DownRight",false);
-                    _headAnimator.SetBool("UpLeft",true);
-                    _headAnimator.SetBool("UpRight",false);
+                    _animator.SetBool("DownLeft", false);
+                    _animator.SetBool("DownRight", false);
+                    _animator.SetBool("UpLeft", true);
+                    _animator.SetBool("UpRight", false);
+                    _headAnimator.SetBool("DownLeft", false);
+                    _headAnimator.SetBool("DownRight", false);
+                    _headAnimator.SetBool("UpLeft", true);
+                    _headAnimator.SetBool("UpRight", false);
                     _fov.transform.rotation = Quaternion.Euler(0, 0, 60);
                     break;
                 case ChairDirection.UpRight:
-                    _animator.SetBool("DownLeft",false);
-                    _animator.SetBool("DownRight",false);
-                    _animator.SetBool("UpLeft",false);
-                    _animator.SetBool("UpRight",true);
-                    _headAnimator.SetBool("DownLeft",false);
-                    _headAnimator.SetBool("DownRight",false);
-                    _headAnimator.SetBool("UpLeft",false);
-                    _headAnimator.SetBool("UpRight",true);
+                    _animator.SetBool("DownLeft", false);
+                    _animator.SetBool("DownRight", false);
+                    _animator.SetBool("UpLeft", false);
+                    _animator.SetBool("UpRight", true);
+                    _headAnimator.SetBool("DownLeft", false);
+                    _headAnimator.SetBool("DownRight", false);
+                    _headAnimator.SetBool("UpLeft", false);
+                    _headAnimator.SetBool("UpRight", true);
                     _fov.transform.rotation = Quaternion.Euler(0, 0, 315);
                     break;
             }
         }
-        
+
         private void CheckHazards()
         {
-            if(!_isSitting) { return; }
-            
+            if (!_isSitting) { return; }
+
             CheckRatHazard();
             CheckPuddleHazard();
             CheckChefHazard();
@@ -270,10 +290,10 @@ namespace LAGS.Clients
                 if (!LineOfSight.IsInFieldOfViewAndInSight(data, _fovAngle, out var hit)) { continue; }
 
                 if (hit.collider != null)
-                { 
-                    if(hit.collider.TryGetComponent(out Table table)){ if(table == _table) { continue; } }
+                {
+                    if (hit.collider.TryGetComponent(out Table table)) { if (table == _table) { continue; } }
                 }
-                
+
                 _isAlert = true;
                 _currentFocusTime = _focusTime;
                 _data = data;
@@ -306,7 +326,7 @@ namespace LAGS.Clients
 
         private void CheckChefHazard()
         {
-            if(_cheff is null) { return; }
+            if (_cheff is null) { return; }
 
             var data = new LineOfSight.IsInSightData
             {
@@ -316,14 +336,14 @@ namespace LAGS.Clients
                 ObstaclesMask = _obstacleMask,
                 Is2D = true
             };
-            
-            if(!LineOfSight.IsInFieldOfViewAndInSight(data, _fovAngle, out var _)) { return; }
-            
-            if(!_cheff.JustSneeze) { return; }
-            
+
+            if (!LineOfSight.IsInFieldOfViewAndInSight(data, _fovAngle, out var _)) { return; }
+
+            if (!_cheff.JustSneeze) { return; }
+
             _table.ReducePoints(_cheffDetectedReducePoints, Reason.ChefDetected);
         }
-        
+
         private void ClientAlert()
         {
             if (!_isAlert || _pointsReduced || _rats.Count == 0 || !_isSitting)
@@ -331,7 +351,7 @@ namespace LAGS.Clients
                 _isAlert = false;
                 _headAnimator.SetBool("IsMoving", false);
                 SelectLightDirection();
-                return;    
+                return;
             }
 
             if (!LineOfSight.IsInFieldOfViewAndInSight(_data, _fovAngle, out var hit))
@@ -340,28 +360,28 @@ namespace LAGS.Clients
                 _headAnimator.SetBool("IsMoving", false);
                 return;
             }
-            
-            if(hit.collider)
+
+            if (hit.collider)
             {
-                if(hit.collider.TryGetComponent(out Table table))
+                if (hit.collider.TryGetComponent(out Table table))
                 {
                     if (table == _table)
                     {
                         _isAlert = false;
                         _headAnimator.SetBool("IsMoving", false);
-                        return;                        
-                    } 
+                        return;
+                    }
                 }
             }
-            
+
             var direction = _data.EndPoint.position - _head.transform.position;
-            
+
             var angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
             _fov.transform.rotation = Quaternion.Euler(0, 0, angle) * Quaternion.Euler(0, 0, -90);
-            
+
             var clampedDeltaX = Mathf.Clamp(direction.x, -1f, 1f);
             var clampedDeltaY = Mathf.Clamp(direction.y, -1f, 1f);
-            
+
             _headAnimator.SetFloat("HeadMoveX", clampedDeltaX);
             _headAnimator.SetFloat("HeadMoveY", clampedDeltaY);
             _headAnimator.SetBool("IsMoving", true);
@@ -373,7 +393,7 @@ namespace LAGS.Clients
                 _table.ReducePoints(_ratDetectedReducePoints, Reason.RatDetected);
             }
         }
-        
+
         public void Escape()
         {
             _fov.enabled = false;
@@ -381,12 +401,12 @@ namespace LAGS.Clients
             _isSitting = false;
             _animator.SetBool("IsSitting", false);
             _headAnimator.SetBool("IsSitting", false);
-            _agent.enabled = true;  
+            _agent.enabled = true;
             _isEscaping = true;
             _agent.isStopped = false;
             _agent.SetDestination(PubManager.Instance.PubDoors.position);
         }
-        
+
         private void GetPlate()
         {
             var plate = PubManager.Instance.GetRandomPlate();
@@ -413,18 +433,18 @@ namespace LAGS.Clients
         {
             _plate = plate;
         }
-        
+
         public void AssignTable(Table table)
         {
             _table = table;
             _table.SitClient(this);
-            
+
             _chair = _table.GetFreeChair();
             _chair.AssignClient(this);
-            
+
             _agent.updateRotation = true;
             _agent.SetDestination(_chair.SittingPosition.position);
-            
+
             StartCoroutine(nameof(WaitToOrder));
         }
 
